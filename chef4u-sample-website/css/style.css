@@ -235,7 +235,7 @@ svg {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./assets/home.webp);
+    background-image: url(../assets/home.webp)  ;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
