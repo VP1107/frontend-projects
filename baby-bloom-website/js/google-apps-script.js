@@ -68,8 +68,6 @@ function doPost(e) {
         lock.tryLock(10000);
 
         const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Submissions');
-        // Optional: Check headers if needed, but for now we just append
-        // const headers = ... (removed to prevent crash if sheet is empty)
         const nextRow = sheet.getLastRow() + 1;
 
         const data = JSON.parse(e.postData.contents);

@@ -20,7 +20,6 @@
     --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(255, 255, 255, 0.3);
     --shadow-soft: 0 10px 30px rgba(91, 31, 36, 0.08);
-    /* Tinted shadow */
     --shadow-hover: 0 20px 40px rgba(91, 31, 36, 0.15);
     --border-radius-lg: 24px;
     --border-radius-pill: 100px;
@@ -107,7 +106,6 @@ a {
     display: flex;
     gap: 40px;
     align-items: center;
-    /* Fix vertical alignment */
 }
 
 .navbar nav ul a {
@@ -117,7 +115,7 @@ a {
     position: relative;
     padding: 5px 0;
     letter-spacing: 0.5px;
-    
+
 }
 
 /* Center-out underline animation */
@@ -219,10 +217,6 @@ a {
     }
 }
 
-/* Gold ring effect */
-/* The following was a syntax error, if it's meant to be a global rule, it should be outside any other rule. */
-/* If it was meant to apply to the whatsapp button's svg, it's already handled by the nested svg rule. */
-/* Assuming it was a global rule that got misplaced, placing it here. */
 svg {
     transform: rotateX(360deg);
 }
@@ -240,7 +234,7 @@ svg {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../assets/home.webp)  ;
+    background-image: url(../assets/home.webp);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -248,7 +242,6 @@ svg {
     padding: 25px;
     max-width: 100%;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-    /* Darken bg image slightly */
 }
 
 .home .bg {
@@ -259,9 +252,7 @@ svg {
     padding: 25px;
     border-radius: 20px;
     background-color: rgba(68, 68, 76, 0.4);
-    /* Slightly More Transparent */
     backdrop-filter: blur(5px);
-    /* Modern frosted glass effect */
     max-width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -272,7 +263,6 @@ svg {
 
 .home .text h3 {
     color: var(--bg-medium);
-    /* Lighter text for dark bg */
     font-size: 20px;
     padding-bottom: 20px;
     text-align: center;
@@ -286,9 +276,7 @@ svg {
     font-size: 50px;
     color: var(--bg-medium);
     border-bottom: 5px solid var(--accent-color);
-    /* Thinner, accent color */
     padding-bottom: 25px;
-    /* Removed border-radius 45% on text block, looked odd */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -312,7 +300,6 @@ svg {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 450px;
-    /* Constrain width */
 }
 
 .form-header h2 {
@@ -344,7 +331,6 @@ svg {
     padding: 12px 15px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
-    /* Softer transition */
     font-family: 'DM Sans', sans-serif;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -416,7 +402,6 @@ svg {
     color: var(--text-gray);
     margin-bottom: 1.5rem;
     text-align: left;
-    /* Better readability */
 }
 
 /* Image Side */
@@ -456,13 +441,11 @@ svg {
     border-bottom: 3px solid var(--accent-color);
     padding-bottom: 15px;
     border-left: none;
-    /* Removed side border for center alignment */
 }
 
 .choose_us .box_container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    /* Responsive Grid */
     gap: 30px;
     width: 100%;
 }
@@ -554,9 +537,7 @@ svg {
     transition: var(--transition-fast);
     display: flex;
     flex-direction: column;
-    /* Force column layout inside */
     align-items: flex-start;
-    /* Left align text */
 }
 
 .our_services .box_container .box1 .box:hover {
@@ -592,9 +573,7 @@ svg {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    /* Reset to left */
     text-align: left;
-    /* Reset to left */
     transition: var(--transition-fast);
     position: relative;
     overflow: hidden;
@@ -612,7 +591,6 @@ svg {
     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
     transition: 0.5s;
     pointer-events: none;
-    /* Allow text selection through the overlay */
 }
 
 .our_services .box_container .box2 .box2-container .box:hover {
@@ -637,24 +615,18 @@ svg {
 
 /* --- Redesigned Service Cards (Full Image) --- */
 
-/* 1. Card Container (Frame) */
-/* 1. Card Container (Frame) */
 .our_services .box_container .box1 .box,
 .our_services .box_container .box2 .box2-container .box {
     position: relative;
     height: 380px;
-    /* Reduced height to fit viewport */
     overflow: hidden;
     padding: 0;
-    /* Remove padding to let image fill */
     background: #000;
-    /* Fallback */
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-soft);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* Push content to bottom */
 }
 
 /* 2. Background Image */
@@ -671,7 +643,6 @@ svg {
 
 .box:hover .card-img {
     transform: scale(1.1);
-    /* Zoom effect on hover */
 }
 
 /* 3. Text Overlay Content */
@@ -679,9 +650,7 @@ svg {
     position: relative;
     z-index: 2;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 100%);
-    /* Stronger gradient */
     padding: 15px;
-    /* Tighter padding */
     color: white;
     width: 100%;
     text-align: left;
@@ -693,7 +662,6 @@ svg {
 .card-content h3 {
     color: white;
     font-size: 1.5rem;
-    /* Smaller Heading */
     margin-bottom: 5px;
     margin-top: 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -703,13 +671,11 @@ svg {
 .card-content p {
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.9rem;
-    /* Smaller text */
     margin-bottom: 0;
     line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-    /* Limit to 2 lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -741,7 +707,6 @@ svg {
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.85rem;
     padding: 2px 0;
-    /* Tighter list */
     border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
 }
 
@@ -764,10 +729,8 @@ svg {
 .box:hover .card-content .sample-menu,
 .box:hover .card-content .price-tag {
     max-height: 300px;
-    /* Reveal content */
     opacity: 1;
     margin-top: 15px;
-    /* Add spacing when revealed */
     padding-top: 15px;
 }
 

@@ -1,4 +1,3 @@
-// Intro Animation
 let particleAnimationId;
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -19,40 +18,60 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function runIntroAnimation() {
+
     const stages = [
         { id: 'stage1', delay: 0 },
-        { id: 'stage2', delay: 1200 },
-        { id: 'stage3', delay: 2400 },
-        { id: 'stage4', delay: 3600 },
-        { id: 'introLogo', delay: 4800 }
+        { id: 'stage2', delay: 900 },
+        { id: 'stage3', delay: 1800 },
+        { id: 'stage4', delay: 2700 },
+        { id: 'stage5', delay: 3600 },
+        { id: 'stage6', delay: 4500 },
+        { id: 'stage7', delay: 5400 },
+        { id: 'introLogo', delay: 6300 }
     ];
 
-    // Show first stage
+
     const firstStage = document.getElementById(stages[0].id);
     if (!firstStage) return; // Exit if intro elements are missing (e.g., inner pages)
 
     firstStage.classList.add('active');
 
-    // Progress through stages
+
+    const progressDots = document.querySelectorAll('.progress-dot');
+    const progressLines = document.querySelectorAll('.progress-line');
+
+
     stages.forEach((stage, index) => {
         if (index === 0) return; // Skip first, already shown
 
         setTimeout(() => {
-            // Hide previous stage
+            // Hide prev, show current
             if (index > 0) {
                 const prevStage = document.getElementById(stages[index - 1].id);
                 if (prevStage) prevStage.classList.remove('active');
             }
-            // Show current stage
+
             const currStage = document.getElementById(stage.id);
             if (currStage) currStage.classList.add('active');
+
+
+            if (progressDots[index - 1]) {
+                progressDots[index - 1].classList.remove('active');
+                progressDots[index - 1].classList.add('completed');
+            }
+            if (progressLines[index - 1]) {
+                progressLines[index - 1].classList.add('active');
+            }
+            if (progressDots[index]) {
+                progressDots[index].classList.add('active');
+            }
         }, stage.delay);
     });
 
-    // End intro after all stages
+
     setTimeout(() => {
         endIntro();
-    }, 6500);
+    }, 8000);
 }
 
 let isSkipping = false;
@@ -214,7 +233,6 @@ function initParticles() {
     });
 }
 
-// FAQ Accordion Functionality
 document.addEventListener('DOMContentLoaded', function () {
     // Wait for intro to finish or be skipped
     setTimeout(() => {
@@ -305,37 +323,15 @@ function initializeSiteFeatures() {
             btn.innerHTML = 'Sending...';
             btn.disabled = true;
 
-            // Send to Google Sheets
-            // Send to Google Sheets
-            // Enhanced "Demo Mode" Logic
             const isPlaceholderURL = SCRIPT_URL.includes("script.google.com") === false || SCRIPT_URL.length < 50;
 
-            // NOTE: Even with the real URL, if we are on local file system (file://), CORS might fail or behavior is unpredictable.
-            // We use a "mock success" for this demo environment to ensure the user sees the UI feedback.
-
-            // Simulate network request
             setTimeout(() => {
-                // If we had a real backend, we'd fetch here.
-                // showing success message for user experience demonstration
                 overlay.classList.add('active');
                 contactForm.reset();
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-
                 console.log("Form Data Captured (Demo Mode):", data);
-                // alert("Demo Mode: Form submitted successfully! (Check console for data)");
             }, 1500);
-
-            /* 
-            // Real implementation when SCRIPT_URL is valid and deployed
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify(data)
-            })
-            // ... (rest of fetch logic)
-            */
         });
     }
 
@@ -756,4 +752,50 @@ document.addEventListener('DOMContentLoaded', function () {
             closeModal();
         }
     });
+});
+
+// --- Cookie Consent Logic ---
+document.addEventListener('DOMContentLoaded', function () {
+    const cookieBanner = document.getElementById('cookieConsent');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const declineBtn = document.getElementById('declineCookies');
+
+    // Check if user has already made a choice
+    if (!localStorage.getItem('cookieConsent')) {
+        // Show banner after a short delay
+        setTimeout(() => {
+            if (cookieBanner) {
+                cookieBanner.style.display = 'block';
+                // Allow display:block to apply before adding visible class for transition
+                requestAnimationFrame(() => {
+                    cookieBanner.classList.remove('hidden');
+                    cookieBanner.classList.add('visible');
+                });
+            }
+        }, 2000);
+    }
+
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'true');
+            hideCookieBanner();
+        });
+    }
+
+    if (declineBtn) {
+        declineBtn.addEventListener('click', () => {
+            // Store 'false' so it doesn't ask again
+            localStorage.setItem('cookieConsent', 'false');
+            hideCookieBanner();
+        });
+    }
+
+    function hideCookieBanner() {
+        if (cookieBanner) {
+            cookieBanner.classList.remove('visible');
+            setTimeout(() => {
+                cookieBanner.style.display = 'none';
+            }, 500); // Wait for transition
+        }
+    }
 });
