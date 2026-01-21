@@ -102,13 +102,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // Contact Form Handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        // Create Toast Helper
+        const showToast = (message) => {
+            let toast = document.getElementById('toast-notification');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'toast-notification';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = message;
+            toast.className = 'show';
+            setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+        };
+
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
+            // detailed selector to catch <button> or <input type="submit">
+            const submitBtn = contactForm.querySelector('button[type="submit"], input[type="submit"]');
 
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+            // store original text/value safely
+            let originalText = '';
+            if (submitBtn) {
+                originalText = submitBtn.tagName === 'INPUT' ? submitBtn.value : submitBtn.textContent;
+
+                // Update button state
+                if (submitBtn.tagName === 'INPUT') {
+                    submitBtn.value = 'Sending...';
+                } else {
+                    submitBtn.textContent = 'Sending...';
+                }
+                submitBtn.disabled = true;
+            }
 
             try {
                 const formData = new FormData(contactForm);
@@ -121,18 +145,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    alert("Booked Successfully! We will contact you soon.");
+                    showToast("Booked Successfully! We will contact you soon.");
                     contactForm.reset();
-                    submitBtn.textContent = 'Booked';
+                    if (submitBtn) {
+                        if (submitBtn.tagName === 'INPUT') submitBtn.value = 'Booked';
+                        else submitBtn.textContent = 'Booked';
+                    }
                 } else {
-                    alert("Oops! There was a problem submitting your form via Formspree. Please try WhatsApp instead.");
+                    showToast("Oops! Problem submitting via Formspree. Try WhatsApp.");
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert("Oops! There was a network error. Please check your connection or use WhatsApp.");
+                showToast("Oops! Network error. Please check connection.");
             } finally {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
+                if (submitBtn) {
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        if (submitBtn.tagName === 'INPUT') submitBtn.value = originalText;
+                        else submitBtn.textContent = originalText;
+                    }, 3000);
+                }
             }
         });
     }
