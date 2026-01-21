@@ -1,4 +1,20 @@
 /* --- 1. Variables & Global Reset --- */
+/* Accessibility: Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: 1001;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 :root {
     /* Core Palette */
     --primary-color: #5b1f24;
@@ -60,6 +76,25 @@ p {
     font-size: 1.05rem;
 }
 
+/* Tablet+ Font Size Increase */
+@media (min-width: 768px) {
+    p {
+        font-size: 1.15rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+}
+
 /* Remove default link styles */
 a {
     text-decoration: none;
@@ -85,8 +120,23 @@ a {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
+    gap: 20px;
 }
 
+.navbar nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar .logo {
+    width: 100px;
+}
+
+/* .navbar .logo a{
+    width: 100px;
+    height: 100px;
+} */
 .navbar .logo img {
     height: 100px;
     width: auto;
@@ -95,6 +145,8 @@ a {
     top: 5px;
     left: 60px;
     border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    /* Logo border */
 }
 
 .navbar .logo img:hover {
@@ -268,7 +320,8 @@ svg {
     gap: 50px;
     padding: 25px;
     border-radius: 20px;
-    background-color: rgba(68, 68, 76, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Increased contrast */
     backdrop-filter: blur(5px);
     max-width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -316,7 +369,8 @@ svg {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 450px;
+    max-width: clamp(450px, 550px, 650px);
+    z-index: 10;
 }
 
 .form-header h2 {
@@ -462,9 +516,17 @@ svg {
 
 .choose_us .box_container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Prevent overflow */
     gap: 30px;
     width: 100%;
+}
+
+@media (min-width: 992px) {
+    .choose_us .box_container {
+        grid-template-columns: repeat(3, 1fr);
+        /* Force 3 columns */
+    }
 }
 
 .choose_us .box_container .box {
@@ -478,6 +540,68 @@ svg {
     text-align: center;
     transition: var(--transition-smooth);
     border: 1px solid transparent;
+    cursor: pointer;
+    /* Clickable */
+}
+
+/* Hidden Text for Mindmap Effect */
+.choose_us .box_container .box p {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    margin-top: 15px;
+}
+
+.choose_us .box_container .box.active p {
+    display: block;
+    max-height: 500px;
+    /* Allow room for content */
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.choose_us .box_container .box.active p {
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Visual hint for clickable cards */
+.choose_us .box_container .box::after {
+    content: "Click to expand";
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.choose_us .box_container .box.active::after {
+    display: none;
+}
+
+/* Tablet+ Visibility: Show text by default */
+@media (min-width: 768px) {
+
+    .choose_us .box_container .box p,
+    .our_services .box p,
+    .box2 .box p {
+        display: block;
+        opacity: 1;
+        max-height: none;
+        margin-top: 15px;
+    }
+
+    /* Hide the "Click to expand" hint on larger screens where text is visible */
+    .choose_us .box_container .box::after {
+        display: none;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 .choose_us .box_container .box:hover {
@@ -652,22 +776,54 @@ svg {
 .card-content {
     position: relative;
     z-index: 2;
-    background: linear-gradient(to top, var(--primary-color) 20%, transparent 100%);
-    /* Primary Color gradient */
+    background: linear-gradient(to top, var(--primary-color) 40%, transparent 100%);
+    /* Increased gradient coverage for readability */
     padding: 20px;
     color: white;
     width: 100%;
     text-align: left;
     transform: translateY(0);
+    max-height: 60%;
+    /* Prevent covering full image */
+    overflow-y: auto;
+    /* Scroll if text is too long */
     transition: all 0.4s ease;
     backdrop-filter: blur(2px);
-    /* Optional: adds to the "merged" look */
+    cursor: pointer;
+    /* Interactive: Collapse by default */
+    height: auto;
+    min-height: auto;
+}
+
+/* Hide details by default for Mindmap effect */
+.card-content p,
+.card-content .sample-menu,
+.card-content .price-tag {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+/* Show details when active */
+.box.active .card-content p,
+.box.active .card-content .sample-menu,
+.box.active .card-content .price-tag {
+    display: block;
+    opacity: 1;
+    max-height: 500px;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.box.active .card-content {
+    background: linear-gradient(to top, var(--primary-color) 90%, transparent 100%);
 }
 
 /* Titles & Text */
 .card-content h3 {
     color: white;
-    font-size: 1.5rem !important;
+    font-size: 1.7rem !important;
     /* Enforce consistent size */
     margin-bottom: 8px;
     margin-top: 0;
@@ -677,153 +833,11 @@ svg {
 
 .card-content p {
     color: rgba(255, 255, 255, 0.95);
-    font-size: 1rem !important;
+    font-size: 1.06rem;
     /* Enforce consistent size */
-    margin-bottom: 0;
+    margin-bottom: 10px;
     line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    /* Slightly more text visible */
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* 4. Hover Reveal Elements (Menu & Price) */
-.card-content .sample-menu,
-.card-content .price-tag {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: all 0.5s ease;
-}
-
-/* Menu Content Styles */
-.card-content .sample-menu {
-    border-left: 2px solid var(--accent-color);
-    padding-left: 15px;
-    margin-top: 0;
-}
-
-.card-content .sample-menu h4 {
-    color: var(--accent-color);
-    font-size: 0.95rem;
-    margin-bottom: 3px;
-    margin-top: 8px;
-}
-
-.card-content .sample-menu ul li {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.85rem;
-    padding: 2px 0;
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
-}
-
-.card-content .sample-menu ul li::before {
-    content: '•';
-    color: var(--accent-color);
-    position: absolute;
-    left: -12px;
-}
-
-.card-content .price-tag {
-    color: var(--accent-color);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 0;
-    padding-top: 0;
-    text-align: left;
-}
-
-/* 5. Hover Interaction */
-.box:hover .card-content .sample-menu,
-.box:hover .card-content .price-tag {
-    max-height: 300px;
-    opacity: 1;
-    margin-top: 15px;
-    padding-top: 15px;
-}
-
-/* --- End of Redesigned Service Cards --- */
-
-/* --- 8. Animation Classes (Preserved) --- */
-.reveal-node {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: opacity, transform;
-}
-
-.reveal-node.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.clients_marquee h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: var(--primary-color);
-}
-
-.marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    white-space: nowrap;
-}
-
-.marquee-wrapper::before,
-.marquee-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 150px;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.marquee-wrapper::before {
-    left: 0;
-    background: linear-gradient(to right, var(--bg-white), transparent);
-}
-
-.marquee-wrapper::after {
-    right: 0;
-    background: linear-gradient(to left, var(--bg-white), transparent);
-}
-
-.marquee-content {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll 30s linear infinite;
-}
-
-.marquee-content img {
-    height: 80px;
-    /* Uniform height */
-    width: auto;
-    margin: 0 40px;
-    opacity: 0.6;
-    filter: grayscale(100%);
-    transition: var(--transition-fast);
-    cursor: default;
-    display: inline-block;
-}
-
-.marquee-content img:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-    transform: scale(1.1);
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-33.33%);
-    }
+    /* Removed truncation to show full text */
 }
 
 /* --- 10. Footer --- */
@@ -862,6 +876,10 @@ footer {
 }
 
 /* Brand Col */
+.links {
+    margin-left: 100px;
+}
+
 .footer-col.brand .logo img {
     max-width: 150px;
     margin-bottom: 20px;
@@ -871,6 +889,16 @@ footer {
 .footer-col.brand p {
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 15px;
+}
+
+.contact-info {
+    margin-top: 40px;
+}
+
+.contact-info p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+    margin-top: 20px;
 }
 
 .contact-info p {
@@ -899,15 +927,6 @@ footer {
 .footer-col.links ul li a:hover {
     color: var(--accent-color);
     transform: translateX(5px);
-}
-
-/* Map Col */
-.footer-col.map .map-frame {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    height: 200px;
 }
 
 /* Footer Bottom */
@@ -946,60 +965,143 @@ footer {
 
     /* 0. Navbar Wrapper: Disable Sticky */
     .navbar {
-        position: relative;
-        top: auto;
+        position: sticky;
+        top: 0;
     }
 
-    /* 1. Navbar: Stacked Column Layout (No Hamburger) */
+    /* 1. Navbar: Reordered Layout (Hamburger Left, Logo Center, WhatsApp Right) */
     .navbar header {
-        padding: 20px;
-        height: auto;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .navbar .logo img {
-        height: 60px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        /* Push items to extremes */
+        padding: 10px 20px;
+        /* Slightly more horizontal padding */
+        gap: 0;
+        position: relative;
+        /* For absolute centering of logo */
     }
 
     .hamburger {
-        display: none !important;
-        /* Hide Hamburger */
+        display: flex;
+        order: 1;
+        /* First position */
+        margin: 0;
+        z-index: 10;
+    }
+
+    .navbar .logo {
+        order: 2;
+        /* Second - Center */
+        transform: translateX(-50%);
+    }
+
+    .navbar .logo img {
+        max-height: 50px;
+        width: auto;
+        margin-right: clamp(0px, 30px, 100px);
+        position: relative;
+
+    }
+
+    .navbar .cta {
+        order: 3;
+        /* Third - Right */
+        margin: 0;
+    }
+
+    /* Push nav out of normal flow */
+    .navbar nav {
+        order: 99;
+    }
+
+    /* WhatsApp Button Mobile Optimization - Icon Only */
+    .navbar .cta a {
+        padding: 8px 10px !important;
+        font-size: 0 !important;
+        /* Hide text */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        width: 44px;
+        /* WCAG Min touch target */
+        height: 44px;
+        /* WCAG Min touch target */
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+    }
+
+    .navbar .cta a svg {
+        margin: 0 !important;
+        width: 20px;
+        height: 20px;
     }
 
     .navbar nav {
-        position: static;
-        /* Default flow */
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        height: auto;
-        background: transparent;
-        padding: 0;
-        box-shadow: none;
-        clip-path: none;
-        transform: none;
+        background: rgba(0, 0, 0, 0.95);
+        /* Dark background for mobile menu */
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: none;
+        /* Hidden by default */
+        text-align: center;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .navbar nav.active {
         display: block;
-        /* Always visible */
+        /* Show when active */
     }
 
     .navbar nav ul {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
-        width: 100%;
+        gap: 20px;
+        overflow-y: auto;
+        max-height: 80vh;
+    }
+
+    /* Scroll indicator for menu */
+    .navbar nav ul::-webkit-scrollbar {
+        width: 4px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar nav ul::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 4px;
     }
 
     .navbar nav ul a {
-        font-size: 1.1rem;
-        color: var(--text-light);
+        font-size: 1.2rem;
+        color: white;
         display: block;
-        padding: 5px 0;
+        padding: 10px 0;
     }
 
-    .navbar .cta {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+    /* CTA in nav dropdown - commented out to preserve header layout */
+    \n
+    /* .navbar .cta { width: 100%; display: flex; justify-content: center; } */
 
     .dropdown-menu {
         position: static;
@@ -1079,15 +1181,68 @@ footer {
         width: 100%;
     }
 
-    /* 4. Service Section Responsive */
+    /* 4. Service Section Responsive - Revert to Stacked */
     .our_services .box_container {
+        display: flex;
         flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Restore Flex Blocks */
+    .our_services .box_container .box1,
+    .our_services .box_container .box2,
+    .our_services .box_container .box2 .box2-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
     }
 
     .our_services .box_container .box1 .box,
     .our_services .box_container .box2 .box2-container .box {
+        width: 100%;
+        height: 250px;
+        /* Default height */
+        flex: none;
+    }
+
+    /* Increase height for last two boxes (Packed Meals, etc.) */
+    .our_services .box_container .box2 .box2-container .box {
         height: 350px;
-        /* Slightly smaller on mobile if needed, or keep 380px */
+        /* Taller */
+    }
+
+    /* Smaller Font Size for Mobile */
+    .card-content h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .card-content p {
+        font-size: 0.9rem !important;
+        line-height: 1.4;
+    }
+
+    /* 5. Menu Header Text Cleanup */
+    .home .content h3 {
+        display: none;
+        /* Hide H3 on mobile */
+    }
+
+    /* 6. Why Choose Us - Compact Accordion */
+    .choose_us .box_container .box {
+        padding: 20px;
+        /* Reduced padding */
+        min-height: auto;
+    }
+
+    .choose_us .box_container .box .svg {
+        width: 50px;
+        /* Smaller Icon */
+        height: 50px;
+        padding: 10px;
+        margin-bottom: 15px;
     }
 }
 
@@ -1249,7 +1404,7 @@ footer {
 /* --- Buttons --- */
 .btn-primary {
     display: inline-block;
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: white;
     padding: 15px 40px;
     border-radius: var(--border-radius-pill);
@@ -1269,22 +1424,27 @@ footer {
 }
 
 /* Footer Flex Layout */
-/* Footer Flex Layout */
 .footer-bottom {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
     padding: 20px 40px;
     background: transparent;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.footer-bottom>p {
+    margin: 0;
 }
 
 .watermark-wrapper {
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 @media (max-width: 768px) {
@@ -1355,7 +1515,100 @@ footer {
     text-shadow: 0 0 10px rgba(214, 178, 94, 0.6);
 }
 
+
+/* --- Page Transitions --- */
+body {
+    /* Ensure body has a background so fade looks right, 
+       but for color transition we might need an overlay */
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Create a pseudo-element for the color transition layer */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+body.fade-out::before {
+    opacity: 1;
+}
+
+
 .logo-essential:hover .creations {
     letter-spacing: 9px;
     color: #ffffff;
+}
+
+/* --- New Footer Elements --- */
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* FSSAI Badge */
+.fssai-badge {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.fssai-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fssai-icon {
+    font-size: 1.5rem;
+}
+
+.fssai-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.fssai-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.2;
+}
+
+.fssai-id {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
 }
