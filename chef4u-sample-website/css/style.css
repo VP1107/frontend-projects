@@ -1244,6 +1244,11 @@ footer {
         padding: 10px;
         margin-bottom: 15px;
     }
+
+    .links {
+        margin-left: 0px;
+    }
+
 }
 
 /* --- 12. Menu Page Styles --- */
