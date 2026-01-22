@@ -7,17 +7,16 @@
     <title>Chef4U - Full Menu</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/back_to_top.css">
+    <link rel="stylesheet" href="./css/flipbook.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
     <link rel="canonical" href="https://chef4ucatering.com/menu">
     <link rel="icon" type="image/webp" href="./assets/logo.webp">
     <meta name="description"
-        content="Explore Chef4U's extensive catering menu. Authentic Indian, Continental, Mexican, and Thai cuisines for your special events in Ahmedabad.">
-</head>
-
+        content="Explore Chef4U's extensive catering menu in our interactive menu book. Authentic Indian, Continental, Mexican, and Thai cuisines.">
 </head>
 
 <body>
@@ -37,7 +36,7 @@
                 </ul>
             </nav>
             <div class="cta">
-                <a href="https://wa.me/919898002719?text=Hi%20Chef4U!%20I%27d%20like%20to%20inquire%20about%20catering%20services"
+                <a href="https://wa.me/919898002719?text=Hi%20Chef4U!%20I%22d%20like%20to%20inquire%20about%20catering%20services"
                     class="whatsapp" target="_blank"
                     style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background-color: #25D366; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -55,436 +54,356 @@
         </header>
     </section>
 
-    <!-- Menu Header -->
-    <section class="home" style="margin-bottom: 20px;">
-        <div class="container"
-            style="min-height: calc(100vh - 170px); background-image: url('./assets/menu_header.webp');">
-            <div class="bg">
-                <div class="text">
-                    <h1>Chef 4 U Food Menu</h1>
-                    <h4 style="margin-top: 20px; font-size: 1.2rem; color:white;">Delivering World Class Catering Fused
-                        with Impeccable Service</h4>
+    <!-- Flipbook Container -->
+    <div class="book-wrapper">
+        <div id="book">
+            <!-- Page 1: Front Cover -->
+            <div class="page -hard">
+                <div class="cover-content">
+                    <img src="./assets/logo.webp" alt="Chef4U Logo" class="cover-logo">
+                    <h1 class="cover-title">The Menu</h1>
+                    <p class="cover-subtitle">Delivering World Class Catering Fused with Impeccable Service</p>
+                    <p style="margin-top: 50px; font-style: italic; color: #d4a373;">— Est. 2014 —</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Menu Navigation Index -->
-    <div class="menu-index-container">
-        <div class="menu-index">
-            <a href="#mocktails" class="index-link">Mocktails</a>
-            <a href="#salads" class="index-link">Salads</a>
-            <a href="#soups" class="index-link">Soups</a>
-            <a href="#starters" class="index-link">Starters</a>
-            <a href="#main-course" class="index-link">Main Course</a>
-            <a href="#breads-rice" class="index-link">Breads & Rice</a>
+            <!-- Page 2: Introduction & Indexes -->
+            <div class="page">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Welcome</h2>
+                    </div>
+                    <p style="text-align: center; margin-bottom: 20px;">
+                        Explore our extensive catering options. From refreshing mocktails to hearty main courses.
+                    </p>
+
+                    <div class="menu-index-container" style="margin-bottom: 15px;">
+                        <h3 style="text-align: center; margin-bottom: 10px; color: var(--heading-color);">Quick Index
+                        </h3>
+                        <div class="menu-index"
+                            style="display: flex; flex-direction: column; gap: 8px; align-items: center; font-size: 0.95rem;">
+                            <a href="#mocktails" class="index-link"
+                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Mocktails
+                                & Salads</a>
+                            <a href="#soups" class="index-link"
+                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Soups</a>
+                            <a href="#starters-1" class="index-link"
+                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Starters</a>
+                            <a href="#main-course-1" class="index-link"
+                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Main
+                                Course</a>
+                            <a href="#breads-rice" class="index-link"
+                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Breads &
+                                Rice</a>
+                        </div>
+                    </div>
+
+                    <div class="dietary-info"
+                        style="text-align: center; margin-top: auto; color: var(--text-gray); font-size: 0.8rem;">
+                        <p><strong>Note:</strong> Customization available for all menu items.</p>
+                        <div class="legend" style="margin-top: 5px;">
+                            <span style="margin: 0 5px;"><span style="color: green;">🟢</span> Veg</span>
+                            <span style="margin: 0 5px;"><span>🌱</span> Vegan Available</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-number">1</div>
+            </div>
+
+            <!-- Page 3: Mocktails -->
+            <div class="page" id="mocktails">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Mocktails</h2>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Blue Maunten Misty</span>
+                            <p class="menu-desc">Blue curacao syrup lime juice</p>
+                        </div>
+                        <div class="menu-item"><span class="menu-title">Spicy Guava Zing</span>
+                            <p class="menu-desc">Fresh red guava, tobacco sauce</p>
+                        </div>
+                        <div class="menu-item"><span class="menu-title">Iran Mojito</span>
+                            <p class="menu-desc">Mojito syrup, lime juice</p>
+                        </div>
+                        <div class="menu-item"><span class="menu-title">Green Apple Mojito</span>
+                            <p class="menu-desc">Green apple mojito syrup</p>
+                        </div>
+                        <div class="menu-item"><span class="menu-title">Orange Mojito</span>
+                            <p class="menu-desc">Mojito syrup, lime juice</p>
+                        </div>
+                        <div class="menu-item"><span class="menu-title">Virgin Pina Colada</span>
+                            <p class="menu-desc">Pineapple crush, coconut milk</p>
+                        </div>
+                        <div class="menu-item"><span class="menu-title">Margarita</span>
+                            <p class="menu-desc">Orange juice, lime juice</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-number">2</div>
+            </div>
+
+            <!-- Page 4: Salads -->
+            <div class="page" id="salads">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Salads</h2>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Vinaigrette Dressing</span></div>
+                        <div class="menu-item"><span class="menu-title">Creamy Mayonnaise Dressing</span></div>
+                        <div class="menu-item"><span class="menu-title">Fresh Green Salad</span></div>
+                        <div class="menu-item"><span class="menu-title">Russian Salad</span></div>
+                        <div class="menu-item"><span class="menu-title">Mexican Salad</span></div>
+                        <div class="menu-item"><span class="menu-title">Sprouted Salad</span></div>
+                        <div class="menu-item"><span class="menu-title">American Corn Salad</span></div>
+                        <div class="menu-item"><span class="menu-title">Cold Pasta</span></div>
+                        <div class="menu-item"><span class="menu-title">Thai Sam Tam</span></div>
+                        <div class="menu-item"><span class="menu-title">Chick Pea & Peanut Salad</span></div>
+                        <div class="menu-item"><span class="menu-title">Afghan Salad</span></div>
+                    </div>
+                </div>
+                <div class="page-number">3</div>
+            </div>
+
+            <!-- Page 5: Thai & Chinese Soups -->
+            <div class="page" id="soups">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Soups</h2>
+                    </div>
+
+                    <h3 style="color: var(--heading-color); margin-bottom: 5px;">Thai</h3>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Burmese Khow Suey Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Malaysian Laksa Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Thai Coconut Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Tom Kha Ghai</span></div>
+                    </div>
+
+                    <h3 style="color: var(--heading-color); margin-bottom: 5px; margin-top: 15px;">Chinese</h3>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Eight Treasure Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Dumpling Coriander Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Burnt Ginger Garlic Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Cheese Corn Tomato Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Roasted Red Peppers</span></div>
+                        <div class="menu-item"><span class="menu-title">Bell Pepper Cashew Nut</span></div>
+                    </div>
+                </div>
+                <div class="page-number">4</div>
+            </div>
+
+            <!-- Page 6: More Soups & Mexican -->
+            <div class="page">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Soups</h2>
+                    </div>
+
+                    <h3 style="color: var(--heading-color); margin-bottom: 5px;">Mexican</h3>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Mexican Tortilla Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Chipotle Veg. Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Mexican Bisque Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Mexican Cilantro Soup</span></div>
+                    </div>
+
+                    <h3 style="color: var(--heading-color); margin-bottom: 5px; margin-top: 15px;">Chinese (Cont.)</h3>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Tempura Soba Noodle</span></div>
+                        <div class="menu-item"><span class="menu-title">Asian Green Soup</span></div>
+                    </div>
+                </div>
+                <div class="page-number">5</div>
+            </div>
+
+            <!-- Page 7: Continental Soups -->
+            <div class="page">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Soups</h2>
+                    </div>
+                    <h3 style="color: var(--heading-color); margin-bottom: 5px;">Continental</h3>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Classic Minestrone</span></div>
+                        <div class="menu-item"><span class="menu-title">Roasted Tomato Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Tomato Cheese Basil</span></div>
+                        <div class="menu-item"><span class="menu-title">Broccoli Almond Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Jalapeno Cheese Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Green Minestrone Soup</span></div>
+                        <div class="menu-item"><span class="menu-title">Roasted Pumpkin Rosemary</span></div>
+                        <div class="menu-item"><span class="menu-title">Spaghetti Arabietta</span></div>
+                        <div class="menu-item"><span class="menu-title">Tomato Red Bisque</span></div>
+                        <div class="menu-item"><span class="menu-title">Three Pepper Herb Soup</span></div>
+                    </div>
+                </div>
+                <div class="page-number">6</div>
+            </div>
+
+            <!-- Page 8: Starters I -->
+            <div class="page" id="starters-1">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Starters</h2>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Signature Roll</span></div>
+                        <div class="menu-item"><span class="menu-title">Oriental Cigar</span></div>
+                        <div class="menu-item"><span class="menu-title">Hara Kachha Gola</span></div>
+                        <div class="menu-item"><span class="menu-title">Turkish Sambusek</span></div>
+                        <div class="menu-item"><span class="menu-title">Tomato Basil Bruschetta</span></div>
+                        <div class="menu-item"><span class="menu-title">Shanghai Paneer</span></div>
+                        <div class="menu-item"><span class="menu-title">Spinach Shanghai Balls</span></div>
+                        <div class="menu-item"><span class="menu-title">Panni (Coleslaw/Mexican)</span></div>
+                        <div class="menu-item"><span class="menu-title">Tulsi Malai Paneer Tikka</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Tikka Kali Mirch</span></div>
+                    </div>
+                </div>
+                <div class="page-number">7</div>
+            </div>
+
+            <!-- Page 9: Starters II -->
+            <div class="page" id="starters-2">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Starters</h2>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Hariyali Paneer Tikka</span></div>
+                        <div class="menu-item"><span class="menu-title">Lal Mirch Ka Paneer Tikka</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Mughlai Tikka</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Achari Tikka</span></div>
+                        <div class="menu-item"><span class="menu-title">Soya Ki Shami Kebabs</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Koliwada</span></div>
+                        <div class="menu-item"><span class="menu-title">Baked Bread Temletes</span></div>
+                        <div class="menu-item"><span class="menu-title">Cheese Chilli Open Toast</span></div>
+                        <div class="menu-item"><span class="menu-title">Teiryaki Grilled Veg</span></div>
+                        <div class="menu-item"><span class="menu-title">Crustini</span></div>
+                        <div class="menu-item"><span class="menu-title">Kafe Cottage Cheese</span></div>
+                    </div>
+                </div>
+                <div class="page-number">8</div>
+            </div>
+
+            <!-- Page 10: Starters III -->
+            <div class="page" id="starters-3">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Starters</h2>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Rosemary Potato Satay</span></div>
+                        <div class="menu-item"><span class="menu-title">Black Beans Chilli Pop</span></div>
+                        <div class="menu-item"><span class="menu-title">Hungarian Style Empanadas</span></div>
+                        <div class="menu-item"><span class="menu-title">Baby Potato Dumplings</span></div>
+                        <div class="menu-item"><span class="menu-title">Cottage Cheese Scoopers</span></div>
+                        <div class="menu-item"><span class="menu-title">Gochungay Fried Fall Squash</span></div>
+                        <div class="menu-item"><span class="menu-title">Corian Roll</span></div>
+
+                        <div style="margin-top: 15px; border-top: 1px dotted #ccc; padding-top: 10px;">
+                            <strong style="color: var(--heading-color);">Gourmet Starters</strong>
+                            <p style="font-size: 0.85rem;">Corn Bell Pepper Bites • Cottage Cheese Tomato Pesto •
+                                Watermelon Sumar Que</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-number">9</div>
+            </div>
+
+            <!-- Page 11: Main Course I -->
+            <div class="page" id="main-course-1">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Main Course</h2>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Paneer Lababdar</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Butter Masala</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Makhani</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Kadai</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Tikka Masala</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Do Pyaza</span></div>
+                        <div class="menu-item"><span class="menu-title">Paneer Pasanda</span></div>
+                        <div class="menu-item"><span class="menu-title">Veg Kofta Curry</span></div>
+                        <div class="menu-item"><span class="menu-title">Malai Kofta</span></div>
+                        <div class="menu-item"><span class="menu-title">Kashmiri Dum Aloo</span></div>
+                    </div>
+                </div>
+                <div class="page-number">10</div>
+            </div>
+
+            <!-- Page 12: Main Course II -->
+            <div class="page" id="main-course-2">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Main Course</h2>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Jeera Aloo</span></div>
+                        <div class="menu-item"><span class="menu-title">Aloo Mutter</span></div>
+                        <div class="menu-item"><span class="menu-title">Mix Veg</span></div>
+                        <div class="menu-item"><span class="menu-title">Veg Handi</span></div>
+                        <div class="menu-item"><span class="menu-title">Veg Kolhapuri</span></div>
+                        <div class="menu-item"><span class="menu-title">Dal Fry / Dal Tadka</span></div>
+                        <div class="menu-item"><span class="menu-title">Dal Makhani</span></div>
+                        <div class="menu-item"><span class="menu-title">Rajma Masala</span></div>
+                        <div class="menu-item"><span class="menu-title">Chole Masala</span></div>
+                        <div class="menu-item"><span class="menu-title">Punjabi Kadhi</span></div>
+                    </div>
+                </div>
+                <div class="page-number">11</div>
+            </div>
+
+            <!-- Page 13: Breads & Rice -->
+            <div class="page" id="breads-rice">
+                <div class="page-content">
+                    <div class="page-header">
+                        <h2>Breads & Rice</h2>
+                    </div>
+                    <div class="menu-grid">
+                        <div class="menu-item"><span class="menu-title">Tandoori Roti</span></div>
+                        <div class="menu-item"><span class="menu-title">Butter Roti</span></div>
+                        <div class="menu-item"><span class="menu-title">Lachha Paratha</span></div>
+                        <div class="menu-item"><span class="menu-title">Plain Naan</span></div>
+                        <div class="menu-item"><span class="menu-title">Butter Naan</span></div>
+                        <div class="menu-item"><span class="menu-title">Garlic Naan</span></div>
+                        <div class="menu-item"><span class="menu-title">Cheese Naan</span></div>
+                        <div class="menu-item"><span class="menu-title">Steam Rice</span></div>
+                        <div class="menu-item"><span class="menu-title">Jeera Rice</span></div>
+                        <div class="menu-item"><span class="menu-title">Veg Pulao</span></div>
+                        <div class="menu-item"><span class="menu-title">Veg Biryani</span></div>
+                        <div class="menu-item"><span class="menu-title">Dal Khichdi</span></div>
+                        <div class="menu-item"><span class="menu-title">Plain Curd</span></div>
+                        <div class="menu-item"><span class="menu-title">Boondi Raita</span></div>
+                    </div>
+                </div>
+                <div class="page-number">12</div>
+            </div>
+
+            <!-- Page 14: Back Cover -->
+            <div class="page -hard">
+                <div class="cover-content">
+                    <h2 class="cover-title">Contact Us</h2>
+                    <div style="color: #d4a373; font-size: 1.1rem; line-height: 1.8;">
+                        <p>📍 Kalpana Society, Navrangpura, Ahmedabad</p>
+                        <p>📞 +91 98980 02719</p>
+                        <p>✉️ chefdhwani99@gmail.com</p>
+                    </div>
+                    <img src="./assets/logo.webp" alt="Chef4U Logo" class="cover-logo" style="margin-top: 50px;">
+                    <p style="font-size: 0.8rem; opacity: 0.7;">www.chef4ucatering.com</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="controls">
+            <button class="btn-control btn-first" aria-label="First Page">First Page</button>
+            <button class="btn-control btn-prev" aria-label="Previous Page">&#8592;</button>
+            <button class="btn-control btn-next" aria-label="Next Page">&#8594;</button>
         </div>
     </div>
 
-    <!-- Dietary Legend & Customization Note -->
-    <div class="dietary-info" style="text-align: center; margin: 20px 0; color: var(--text-gray);">
-        <p><strong>Note:</strong> Customization available for all menu items.</p>
-        <div class="legend" style="margin-top: 10px; font-size: 0.9rem;">
-            <span style="margin: 0 10px;"><span style="color: green;">🟢</span> Veg</span>
-            <span style="margin: 0 10px;"><span>🌱</span> Vegan Available</span>
-            <span style="margin: 0 10px;"><span>🌾</span> Gluten-Free Options</span>
-        </div>
-    </div>
-
-    <!-- Menu Content -->
-    <section class="menu-section">
-
-        <!-- Mocktails -->
-        <div class="menu-category" id="mocktails">
-            <h2>Mocktails</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <span class="menu-title">Blue Maunten Misty</span>
-                    <p class="menu-desc">Blue curacao syrup lime juice, lime, soda & sprite Top with fresh cream</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Spicy Guava Zing</span>
-                    <p class="menu-desc">Fresh red guava, tobacco sauce, red chilli pepper & siracha</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Iran Mojito</span>
-                    <p class="menu-desc">Mojito syrup, lime juice, pomegranates seed mint leaves, lime, soda & sprite
-                    </p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Green Apple Mojito</span>
-                    <p class="menu-desc">Green apple mojito syrup, fresh cut green apple, lime, mint leaves soda &
-                        sprite</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Orange Mojito</span>
-                    <p class="menu-desc">Mojito syrup, lime juice, lime, soda & Fanta or Miranda</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Virgin Pina Colada</span>
-                    <p class="menu-desc">Pineapple crush, pineapple juice, coconut milk & vanilla ice cream</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Margarita</span>
-                    <p class="menu-desc">Orange juice, lime juice, soda & agave nectar</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Salads -->
-        <div class="menu-category" id="salads">
-            <h2>Salads</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <span class="menu-title">Vinaigrette Dressing</span>
-                    <p class="menu-desc">Vinaigrette is made by mixing an oil with a mild acid sauce as vinegar or lemon
-                        juice, salt, herbs and spices.</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Creamy Mayonnaise Dressing</span>
-                    <p class="menu-desc">All-purpose creamy mayonnaise salad dressing</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Fresh Green Salad</span>
-                    <p class="menu-desc">Cucumber, tomato, carrot, beetroot, lemon (Seasonable radish)</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Russian Salad</span>
-                    <p class="menu-desc">Carrot, beans, Potato, green peas Apple, Pineapple. Marinated with mayonnaise
-                        and sweet cream</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Mexican Salad</span>
-                    <p class="menu-desc">Rajma, baked beans, American corn, and three pepper marinated with salsa</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Sprouted Salad</span>
-                    <p class="menu-desc">Chat pate sprouted salad with vegetable</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">American Corn Salad</span>
-                    <p class="menu-desc">Fresh American corn, assorted bell pepper choice your dressing, thousand island
-                        / salsa / creamy and Italian</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Cold Pasta</span>
-                    <p class="menu-desc">Red yellow bell paper, marinated with dressing Cocktail, Mayo, hot garlic
-                        dressing, Vinaigrette dressing</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Thai Sam Tam</span>
-                    <p class="menu-desc">Ruffey cuts of raw papaya dressing with garlic, green chili, coriander, Thai
-                        sweet chilli and salt</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Chick Pea & Peanut Salad</span>
-                    <p class="menu-desc">Onion, cucumber, cilantro, tomato, marinated with Indian salsa</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Afghan Salad</span>
-                    <p class="menu-desc">Prepared with the primary ingredients of tomato, cucumber, onion, carrot,
-                        cilantro, mint & lemon juice</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Soup Section -->
-        <div class="menu-category" id="soups">
-            <h2>Soups</h2>
-
-            <h3 style="text-align:center; color: var(--accent-color); margin-bottom: 20px;">Thai Soup</h3>
-            <div class="menu-grid" style="margin-bottom: 40px;">
-                <div class="menu-item">
-                    <span class="menu-title">Burmese Khow Suey Soup</span>
-                    <p class="menu-desc">A delectable one pot meal which is essentially a vegetable broth, thickened
-                        with coconut milk, with boiled noodles, crispy noodles, crunchy vegetables and crispy toppings
-                    </p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Malaysian Laksa Soup</span>
-                    <p class="menu-desc">Coconut Curry Noodle Soup can be made with your choice of Asian veggies or tofu
-                        noodles in the most fragrant coconut broth</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Thai Coconut Soup</span>
-                    <p class="menu-desc">Diced vegetables, tossed in Thai sauce served in a broth of coconut milk</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Tom Kha Ghai</span>
-                    <p class="menu-desc">Reach coconut milk-based mushroom soup flavoured with galangal and lemon grass
-                    </p>
-                </div>
-            </div>
-
-            <h3 style="text-align:center; color: var(--accent-color); margin-bottom: 20px;">Chinese Soup</h3>
-            <div class="menu-grid" style="margin-bottom: 40px;">
-                <div class="menu-item">
-                    <span class="menu-title">Eight Treasure Soup</span>
-                    <p class="menu-desc">Popular Chinese soup is made with mushrooms, dried scallops</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Dumpling Coriander Soup</span>
-                    <p class="menu-desc">Authentic Chinese soup with coriander broth and veg. dumplings</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Burnt Ginger Garlic Soup</span>
-                    <p class="menu-desc">Here’s international soup with burnt garlic vegetables clear soup</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Cheese Corn Tomato Soup</span>
-                    <p class="menu-desc">A delicious soup made with a melange of tomato and feta cheese</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Roasted Red Peppers & Water Chestnut</span>
-                    <p class="menu-desc">Oven Roasted Red Pepper Puree with Water Chestnut Chunks</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Bell Pepper Cashew Nut Soup</span>
-                    <p class="menu-desc">(Red base) served with roasted cashew nut & exotic vegetables</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Tempura Soba Noodle Soup</span>
-                    <p class="menu-desc">Hot Soba noodle soup with soba noodles & exotic vegetables & shitaki mushrooms.
-                    </p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Asian Green Soup</span>
-                    <p class="menu-desc">Clear vegetable stock flavoured with Asian herbs garnished with diced
-                        vegetables</p>
-                </div>
-            </div>
-
-            <h3 style="text-align:center; color: var(--accent-color); margin-bottom: 20px;">Mexican Soup</h3>
-            <div class="menu-grid" style="margin-bottom: 40px;">
-                <div class="menu-item">
-                    <span class="menu-title">Mexican Tortilla Soup</span>
-                    <p class="menu-desc">Originally developed with Mexican tortilla flavour infused broth</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Chipotle Veg. Soup</span>
-                    <p class="menu-desc">(Green base) Served with rice ball</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Mexican Bisque Soup</span>
-                    <p class="menu-desc">(Rajma base)</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Mexican Cilantro Soup</span>
-                    <p class="menu-desc">Served with fried potato chips & three bell peppers with sprinkle cilantro</p>
-                </div>
-            </div>
-
-            <h3 style="text-align:center; color: var(--accent-color); margin-bottom: 20px;">Continental Soup</h3>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <span class="menu-title">Classic Minestrone Soup</span>
-                    <p class="menu-desc">Hearty traditional Italian soup, typically made with beans, pasta and lots of
-                        vegetables</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Roasted Tomato Soup</span>
-                    <p class="menu-desc">Roasted in the preheated oven for garlic and tomato</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Tomato Cheese Basil</span>
-                    <p class="menu-desc">Chinese flavoured soup with buttered cubes tomato and green chilli</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Broccoli Almond Soup</span>
-                    <p class="menu-desc">An aromatic infusion of broccoli almonds with a fresh cream and cheese</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Jalapeno Cheese Soup</span>
-                    <p class="menu-desc">(Cream base) served with jalapeno & cilantro</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Green Minestrone Soup</span>
-                    <p class="menu-desc">An aromatic smooth fusion of asparagus, broccoli, and green peas</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Roasted Pumpkin Rosemary Soup</span>
-                    <p class="menu-desc">Creamy roasted pumpkin soup with rosemary. Luxurious thick and creamy</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Roasted Pumpkin Soup</span>
-                    <p class="menu-desc">(Cream base) served with crispy potato skin</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Spaghetti Arabietta Soup</span>
-                    <p class="menu-desc">(Tomato base)</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Tomato Red Bisque</span>
-                    <p class="menu-desc">(Served in bread bowl)</p>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-title">Three Pepper Herb Soup</span>
-                    <p class="menu-desc">Boiled Noodle Soup with Vegetable and three peppers</p>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Starters -->
-        <div class="menu-category" id="starters">
-            <h2>Starters & Appetizers</h2>
-            <div class="menu-grid">
-                <div class="menu-item"><span class="menu-title">Signature Roll</span>
-                    <p class="menu-desc">Served with tomato salsa</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Oriental Cigar</span>
-                    <p class="menu-desc">Served with hot garlic sauce</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Hara Kachha Gola</span>
-                    <p class="menu-desc">Served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Turkish Sambusek</span>
-                    <p class="menu-desc">Served with cocktail sauce</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Tomato Basil Bruschetta</span>
-                    <p class="menu-desc">Served with tomato salsa</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Shanghai Paneer</span></div>
-                <div class="menu-item"><span class="menu-title">Spinach Shanghai Balls</span>
-                    <p class="menu-desc">Deep fried cottage and spinach ball served with Thai ginger sauce</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Panni</span>
-                    <p class="menu-desc">Served with tomato salsa (Coleslaw, Italian garden-fresh vegetables, Mexican
-                        corn cottage cheese)</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Tulsi Malai Paneer Tikka</span>
-                    <p class="menu-desc">Served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Paneer Tikka Kali Mirch</span>
-                    <p class="menu-desc">Served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Hariyali Paneer Tikka</span>
-                    <p class="menu-desc">Served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Lal Mirch Ka Paneer Tikka</span>
-                    <p class="menu-desc">Served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Paneer Mughlai Tikka</span>
-                    <p class="menu-desc">Served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Paneer Achari Tikka</span>
-                    <p class="menu-desc">Served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Soya Ki Shami Kebabs</span>
-                    <p class="menu-desc">Served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Paneer Koliwada</span>
-                    <p class="menu-desc">Served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Baked Bread Temletes</span>
-                    <p class="menu-desc">Served with tomato ketchup</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Cheese Chilli Open Toast</span>
-                    <p class="menu-desc">Served with tomato ketchup</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Teiryaki Grilled Veg Skewers</span>
-                    <p class="menu-desc">(Grilled on tava)</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Crustini</span>
-                    <p class="menu-desc">Served with tomato salsa. Italian bread stuffed with Italian vegetables and
-                        topped with cheese and baked</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Kafe Cottage Cheese</span>
-                    <p class="menu-desc">Deep fried cottage cheese, bell peppers tossed with zed sauce and chilli oil
-                    </p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Rosemary Potato Satay</span>
-                    <p class="menu-desc">Served with tomato salsa & Mustard dip</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Black Beans Chilli Pop</span>
-                    <p class="menu-desc">(Rajma & black udad dal base) served with mint chutney</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Hungarian Style Empanadas</span>
-                    <p class="menu-desc">Served with pineapple chilli salsa</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Baby Potato Dumplings</span>
-                    <p class="menu-desc">Served with wok toast tempura chilli dumpling sauce</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Cottage Cheese Scoopers</span>
-                    <p class="menu-desc">Served with magnate BBQ speghnus sauce</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Gochungay Fried Fall Squash</span>
-                    <p class="menu-desc">Served with sam bal sauce (Baby potato, pineapple, sweet potato)</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Corian Roll</span>
-                    <p class="menu-desc">Served with tempura chilli garlic sauce</p>
-                </div>
-            </div>
-
-            <h3 style="text-align:center; color: var(--accent-color); margin-top: 40px; margin-bottom: 20px;">Gourmet
-                Starters</h3>
-            <div class="menu-grid">
-                <div class="menu-item"><span class="menu-title">Corn Bell Pepper Bites</span>
-                    <p class="menu-desc">Served with ginger honey dumpling sauce</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Cottage Cheese Tomato Pesto Scoopers</span>
-                    <p class="menu-desc">Small pcs of cottage cheese & cherry tomato saute with tomato pesto sauce</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Mix Fruit Scoopers</span>
-                    <p class="menu-desc">With fresh grapes, apple, cherry served with black pepper honey sauce</p>
-                </div>
-                <div class="menu-item"><span class="menu-title">Watermelon Sumar Que</span>
-                    <p class="menu-desc">Diced watermelon, mint leaves, feta cheese</p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Main Course -->
-        <div class="menu-category" id="main-course">
-            <h2>Main Course - Indian</h2>
-            <div class="menu-grid">
-                <div class="menu-item"><span class="menu-title">Paneer Lababdar</span></div>
-                <div class="menu-item"><span class="menu-title">Paneer Butter Masala</span></div>
-                <div class="menu-item"><span class="menu-title">Paneer Makhani</span></div>
-                <div class="menu-item"><span class="menu-title">Paneer Kadai</span></div>
-                <div class="menu-item"><span class="menu-title">Paneer Tikka Masala</span></div>
-                <div class="menu-item"><span class="menu-title">Paneer Do Pyaza</span></div>
-                <div class="menu-item"><span class="menu-title">Paneer Pasanda</span></div>
-                <div class="menu-item"><span class="menu-title">Veg Kofta Curry</span></div>
-                <div class="menu-item"><span class="menu-title">Malai Kofta</span></div>
-                <div class="menu-item"><span class="menu-title">Kashmiri Dum Aloo</span></div>
-                <div class="menu-item"><span class="menu-title">Jeera Aloo</span></div>
-                <div class="menu-item"><span class="menu-title">Aloo Mutter</span></div>
-                <div class="menu-item"><span class="menu-title">Mix Veg</span></div>
-                <div class="menu-item"><span class="menu-title">Veg Handi</span></div>
-                <div class="menu-item"><span class="menu-title">Veg Kolhapuri</span></div>
-                <div class="menu-item"><span class="menu-title">Dal Fry</span></div>
-                <div class="menu-item"><span class="menu-title">Dal Tadka</span></div>
-                <div class="menu-item"><span class="menu-title">Dal Makhani</span></div>
-                <div class="menu-item"><span class="menu-title">Rajma Masala</span></div>
-                <div class="menu-item"><span class="menu-title">Chole Masala</span></div>
-                <div class="menu-item"><span class="menu-title">Punjabi Kadhi</span></div>
-            </div>
-        </div>
-
-        <!-- Breads & Rice -->
-        <div class="menu-category" id="breads-rice">
-            <h2>Breads & Rice</h2>
-            <div class="menu-grid">
-                <div class="menu-item"><span class="menu-title">Tandoori Roti</span></div>
-                <div class="menu-item"><span class="menu-title">Butter Roti</span></div>
-                <div class="menu-item"><span class="menu-title">Lachha Paratha</span></div>
-                <div class="menu-item"><span class="menu-title">Plain Naan</span></div>
-                <div class="menu-item"><span class="menu-title">Butter Naan</span></div>
-                <div class="menu-item"><span class="menu-title">Garlic Naan</span></div>
-                <div class="menu-item"><span class="menu-title">Cheese Naan</span></div>
-                <div class="menu-item"><span class="menu-title">Steam Rice</span></div>
-                <div class="menu-item"><span class="menu-title">Jeera Rice</span></div>
-                <div class="menu-item"><span class="menu-title">Veg Pulao</span></div>
-                <div class="menu-item"><span class="menu-title">Veg Biryani</span></div>
-                <div class="menu-item"><span class="menu-title">Dal Khichdi</span></div>
-                <div class="menu-item"><span class="menu-title">Plain Curd</span></div>
-                <div class="menu-item"><span class="menu-title">Boondi Raita</span></div>
-            </div>
-        </div>
-
-    </section>
     <!-- Footer -->
     <footer id="contact_us">
         <div class="footer-container">
@@ -493,7 +412,6 @@
                     <img src="./assets/logo.webp" alt="Chef4U">
                 </div>
                 <p>Delighting guests with exceptional catering for over 10 years.</p>
-
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -517,7 +435,6 @@
                         </svg></a>
                 </div>
             </div>
-
             <div class="footer-col links">
                 <h3>Quick Links</h3>
                 <ul>
@@ -550,9 +467,10 @@
         </div>
     </footer>
 
-
-
-    <script src="js/script.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+    <script src="./js/flipbook.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
