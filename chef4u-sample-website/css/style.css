@@ -320,7 +320,7 @@ svg {
     gap: 50px;
     padding: 25px;
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.2);
     /* Increased contrast */
     backdrop-filter: blur(5px);
     max-width: 100%;
@@ -840,6 +840,288 @@ svg {
     /* Removed truncation to show full text */
 }
 
+/* --- 8. Text-First Hero Section (Split Layout) --- */
+.hero-text {
+    padding: 120px 20px 60px;
+    /* Reduced vertical padding */
+    background-color: var(--bg-light);
+    background-image:
+        radial-gradient(circle at 85% 15%, rgba(214, 178, 94, 0.12) 0%, transparent 50%),
+        /* Soft gold glow */
+        radial-gradient(circle at 15% 85%, rgba(91, 31, 36, 0.04) 0%, transparent 50%);
+    /* Soft maroon glow */
+    background-size: 100% 100%, 100% 100%;
+    /* Removed pattern sizing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 85vh;
+    /* Taller to accommodate form */
+    text-align: left;
+    /* Align text left for split view */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Decoration */
+.hero-bg-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.decor-icon {
+    position: absolute;
+    color: var(--primary-color);
+    opacity: 0.03;
+    stroke-width: 1px;
+}
+
+.decor-top-left {
+    top: -50px;
+    left: -50px;
+    width: 400px;
+    height: 400px;
+    transform: rotate(15deg);
+}
+
+.decor-bottom-right {
+    bottom: -80px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    transform: rotate(-15deg);
+}
+
+.hero-text .container {
+    max-width: 1200px;
+    /* Wider container for split layout */
+    display: flex;
+    flex-direction: row;
+    /* Split Layout */
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-split .hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-split .hero-form-wrapper {
+    flex: 0 0 400px;
+    /* Fixed width form */
+    width: 400px;
+}
+
+.hero-form-wrapper form {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.hero-form-wrapper h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.hero-form-wrapper p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.15;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border: none;
+    padding: 0;
+    text-align: left;
+    /* Explicitly align left */
+}
+
+.hero-text .subheadline {
+    font-size: 1.25rem;
+    color: var(--text-gray);
+    margin: 0;
+    /* Align left naturally */
+    line-height: 1.6;
+    text-align: left;
+}
+
+.trust-strip {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin: 25px 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* Align start */
+    opacity: 0.9;
+}
+
+.cta-row.mobile-only {
+    display: none;
+    /* Hide by default on desktop */
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 35px;
+    /* Match btn-primary roughly */
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-pill);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    background: transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(91, 31, 36, 0.15);
+}
+
+/* Reassurance Bar */
+.reassurance-bar {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.reassurance-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    /* Increased weight */
+    color: var(--text-dark);
+    /* Darker text for premium feel */
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.reassurance-item span {
+    font-size: 1.4rem;
+}
+
+.reassurance-item svg {
+    width: 24px;
+    height: 24px;
+    color: var(--accent-color);
+    /* Premium icon color */
+    stroke-width: 2px;
+}
+
+/* --- 9. Testimonials Section (New) --- */
+.testimonials-section {
+    padding: 100px 20px;
+    background: var(--bg-medium);
+}
+
+.testimonials-section .container .text h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.testimonials-section .container {
+    text-align: center;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card .stars {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.testimonial-card .review-text {
+    font-style: italic;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reviewer .avatar {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.reviewer .info h4 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.reviewer .info span {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+}
+
 /* --- 10. Footer --- */
 footer {
     background-color: var(--primary-dark);
@@ -934,6 +1216,7 @@ footer {
     text-align: center;
     padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Slightly more visible separator */
 }
 
 .footer-bottom p {
@@ -1643,4 +1926,85 @@ body.fade-out::before {
     visibility: visible;
     opacity: 1;
     bottom: 50px;
+}
+
+/* Back to top styles moved to css/back_to_top.css */
+
+/* --- Responsive Adjustments for Split Hero --- */
+@media (max-width: 992px) {
+    .hero-text {
+        padding-top: 100px;
+        min-height: auto;
+        padding-bottom: 60px;
+        text-align: center;
+        /* Center on mobile */
+    }
+
+    .hero-text .container {
+        flex-direction: column;
+        /* Stack vertically on tablet/mobile */
+        gap: 40px;
+    }
+
+    .hero-split .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        text-align: center;
+        font-size: 2.8rem;
+    }
+
+    .hero-text .subheadline {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .trust-strip {
+        justify-content: center;
+    }
+
+    .reassurance-bar {
+        justify-content: center;
+    }
+
+    .hero-split .hero-form-wrapper {
+        width: 100%;
+        max-width: 500px;
+        /* Limit width on mobile */
+    }
+
+    /* Show mobile CTA if needed, but form is there so maybe not essential. 
+       Keeping it hidden as user has form immediately below */
+    .cta-row.mobile-only {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .trust-strip {
+        font-size: 0.9rem;
+        flex-direction: row;
+        /* Allow wrap */
+        gap: 10px;
+    }
+
+    .trust-strip span {
+        display: inline-block;
+    }
+
+    .reassurance-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .hero-form-wrapper form {
+        padding: 20px;
+    }
 }

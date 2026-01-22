@@ -67,46 +67,76 @@
         </header>
     </section>
 
-    <!-- page1 -->
-    <section class="home" id="home">
-        <div class="container">
-            <!-- <video autoplay muted loop playsinline poster="./assets/hero_poster.webp">
-                <source src="./assets/hero_background.mp4" type="video/mp4">
-            </video> -->
-            <img src="./assets/hero_poster.webp" alt="">
-            <div class="bg">
-                <div class="text">
-                    <h1>Delightful Catering for Every Occasion</h1>
-                </div>
-                <div class="form">
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
-                        <div class="form-header">
-                            <h2>Get In Touch With Us</h2>
-                        </div>
-                        <div class="form-group">
-                            <label for="name" class="sr-only">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="sr-only">Phone</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="sr-only">Message</label>
-                            <textarea id="message" name="message" placeholder="Enter your message" cols="30"
-                                rows="5"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Book Now">
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <!-- Hero Section (Text-First) -->
+    <section class="hero-text" id="home">
+        <!-- Background Decoration -->
+        <div class="hero-bg-decor">
+            <svg class="decor-icon decor-top-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                    d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z" />
+                <path d="M6 17h12" />
+            </svg>
+            <svg class="decor-icon decor-bottom-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                    d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" />
+                <path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" />
+                <path d="M5 21h14" />
+            </svg>
         </div>
+        <div class="container hero-split">
+            <div class="hero-content">
+                <h1>Exceptional Vegetarian Catering for <br> Events That Matter</h1>
+                <p class="subheadline">From weddings to corporate gatherings, we deliver hygienic, flavorful, and timely
+                    catering — so you can focus on your guests.</p>
+
+                <div class="trust-strip">
+                    <span>⭐ 500+ Successful Events</span>
+                    <span class="separator">·</span>
+                    <span>10+ Years of Experience</span>
+                    <span class="separator">·</span>
+                    <span>100% Pure Veg</span>
+                </div>
+
+                <!-- Mobile Actions (Visible only on small screens) -->
+                <div class="cta-row mobile-only">
+                    <a href="#contactForm" class="btn-primary hero-cta">Get a Quote</a>
+                </div>
+
+                <!-- Reassurance bar removed for cleaner layout -->
+            </div>
+
+            <div class="hero-form-wrapper">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
+                    <div class="form-header">
+                        <h2>Get A Free Quote</h2>
+                        <p>Fill out the form below and we'll get back to you shortly.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="sr-only">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea id="message" name="message" placeholder="Enter your message" cols="30"
+                            rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Get Quote Now">
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -308,9 +338,55 @@
             <a href="menu.html" class="btn-primary">View Full Menu</a>
         </div>
     </section>
-    <br><br><br>
-
-    <br><br><br>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="text">
+                <h1>What Our Clients Say</h1>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Review 1 -->
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Chef4U made our corporate event a huge success! The food was fresh,
+                        delicious, and the presentation was impeccable."</p>
+                    <div class="reviewer">
+                        <div class="avatar">R</div>
+                        <div class="info">
+                            <h4>Rajesh Patel</h4>
+                            <span>Corporate Client</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"The best vegetarian catering in Ahmedabad! Everyone loved the innovative
+                        menu and the hygiene standards."</p>
+                    <div class="reviewer">
+                        <div class="avatar">P</div>
+                        <div class="info">
+                            <h4>Priya Shah</h4>
+                            <span>Wedding Reception</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Punctual, professional, and tasty. They handled our guest capacity of 500+
+                        seamlessly."</p>
+                    <div class="reviewer">
+                        <div class="avatar">A</div>
+                        <div class="info">
+                            <h4>Amit Mehta</h4>
+                            <span>Social Gathering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -324,25 +400,18 @@
                 <p>Delighting guests with exceptional catering for over 10 years.</p>
 
                 <div class="social-links">
-                    <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
+                    <a href="https://www.instagram.com/_.chef4u_99/" aria-label="Instagram" target="_blank"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg></a>
-                    <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    <a href="https://www.facebook.com/people/Chef4u/61569903014177/" aria-label="Facebook"
+                        target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                        </svg></a>
-                    <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                            </path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
                         </svg></a>
                 </div>
             </div>
