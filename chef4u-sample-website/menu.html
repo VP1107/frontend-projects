@@ -4,19 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chef4U - Full Menu</title>
+    <title>Chef4U - Menu</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/back_to_top.css">
-    <link rel="stylesheet" href="./css/flipbook.css">
+    <link rel="stylesheet" href="./css/menu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
-    <link rel="canonical" href="https://chef4ucatering.com/menu">
     <link rel="icon" type="image/webp" href="./assets/logo.webp">
-    <meta name="description"
-        content="Explore Chef4U's extensive catering menu in our interactive menu book. Authentic Indian, Continental, Mexican, and Thai cuisines.">
+    <link rel="icon" type="image/webp" href="./assets/logo.webp">
 </head>
 
 <body>
@@ -36,11 +33,11 @@
                 </ul>
             </nav>
             <div class="cta">
-                <a href="https://wa.me/919898002719?text=Hi%20Chef4U!%20I%22d%20like%20to%20inquire%20about%20catering%20services"
+                <a href="https://wa.me/919898002719?text=Hi%20Chef4U!%20I%27d%20like%20to%20inquire%20about%20catering%20services"
                     class="whatsapp" target="_blank"
                     style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; background-color: #25D366; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        viewBox="0 0 24 24" style="margin-right: 8px;">
+                        aria-hidden="true" viewBox="0 0 24 24" style="margin-right: 8px;">
                         <path fill-rule="evenodd"
                             d="M18.403 5.633A8.92 8.92 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a9 9 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.93 8.93 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.45 7.45 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.45 7.45 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.41 7.41 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73s-.354-.112-.504.112-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393s.149-.224.224-.374.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a10 10 0 0 0-.429-.008.83.83 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321 1.582 2.415 3.832 3.387c.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066s.187-.973.131-1.067-.207-.151-.43-.263"
                             clip-rule="evenodd"></path>
@@ -54,355 +51,77 @@
         </header>
     </section>
 
-    <!-- Flipbook Container -->
-    <div class="book-wrapper">
-        <div id="book">
-            <!-- Page 1: Front Cover -->
-            <div class="page -hard">
-                <div class="cover-content">
-                    <img src="./assets/logo.webp" alt="Chef4U Logo" class="cover-logo">
-                    <h1 class="cover-title">The Menu</h1>
-                    <p class="cover-subtitle">Delivering World Class Catering Fused with Impeccable Service</p>
-                    <p style="margin-top: 50px; font-style: italic; color: #d4a373;">— Est. 2014 —</p>
+    <!-- Main Content Wrapper -->
+    <main class="menu-page-container">
+
+        <!-- VIEW 1: Overview (Visible by default) -->
+        <div id="menu-overview" class="view-section active">
+
+            <!-- Hero Title -->
+            <section class="menu-hero">
+                <h1>Our Menu</h1>
+                <p>Discover our exquisite culinary offerings</p>
+                <a href="./assets/Chef4U_Menu.pdf" download="Chef4U_Menu.pdf" class="btn-download">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Download Full Menu
+                </a>
+            </section>
+
+            <!-- Search Section -->
+            <div class="search-wrapper">
+                <div class="search-container">
+                    <input type="text" id="menu-search" placeholder="Search for dishes (e.g., 'Paneer', 'Pasta')..."
+                        autocomplete="off" spellcheck="false">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <div id="search-results" class="search-results hidden"></div>
                 </div>
             </div>
 
-            <!-- Page 2: Introduction & Indexes -->
-            <div class="page">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Welcome</h2>
-                    </div>
-                    <p style="text-align: center; margin-bottom: 20px;">
-                        Explore our extensive catering options. From refreshing mocktails to hearty main courses.
-                    </p>
-
-                    <div class="menu-index-container" style="margin-bottom: 15px;">
-                        <h3 style="text-align: center; margin-bottom: 10px; color: var(--heading-color);">Quick Index
-                        </h3>
-                        <div class="menu-index"
-                            style="display: flex; flex-direction: column; gap: 8px; align-items: center; font-size: 0.95rem;">
-                            <a href="#mocktails" class="index-link"
-                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Mocktails
-                                & Salads</a>
-                            <a href="#soups" class="index-link"
-                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Soups</a>
-                            <a href="#starters-1" class="index-link"
-                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Starters</a>
-                            <a href="#main-course-1" class="index-link"
-                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Main
-                                Course</a>
-                            <a href="#breads-rice" class="index-link"
-                                style="color: #6d3b0e; text-decoration: none; border-bottom: 1px dashed #ccc;">Breads &
-                                Rice</a>
-                        </div>
-                    </div>
-
-                    <div class="dietary-info"
-                        style="text-align: center; margin-top: auto; color: var(--text-gray); font-size: 0.8rem;">
-                        <p><strong>Note:</strong> Customization available for all menu items.</p>
-                        <div class="legend" style="margin-top: 5px;">
-                            <span style="margin: 0 5px;"><span style="color: green;">🟢</span> Veg</span>
-                            <span style="margin: 0 5px;"><span>🌱</span> Vegan Available</span>
-                        </div>
-                    </div>
+            <!-- Category Grid (Index) -->
+            <section class="category-index">
+                <h2>Explore by Category</h2>
+                <div id="category-grid" class="category-grid">
+                    <!-- Populated by JS -->
                 </div>
-                <div class="page-number">1</div>
-            </div>
+            </section>
 
-            <!-- Page 3: Mocktails -->
-            <div class="page" id="mocktails">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Mocktails</h2>
-                    </div>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Blue Maunten Misty</span>
-                            <p class="menu-desc">Blue curacao syrup lime juice</p>
-                        </div>
-                        <div class="menu-item"><span class="menu-title">Spicy Guava Zing</span>
-                            <p class="menu-desc">Fresh red guava, tobacco sauce</p>
-                        </div>
-                        <div class="menu-item"><span class="menu-title">Iran Mojito</span>
-                            <p class="menu-desc">Mojito syrup, lime juice</p>
-                        </div>
-                        <div class="menu-item"><span class="menu-title">Green Apple Mojito</span>
-                            <p class="menu-desc">Green apple mojito syrup</p>
-                        </div>
-                        <div class="menu-item"><span class="menu-title">Orange Mojito</span>
-                            <p class="menu-desc">Mojito syrup, lime juice</p>
-                        </div>
-                        <div class="menu-item"><span class="menu-title">Virgin Pina Colada</span>
-                            <p class="menu-desc">Pineapple crush, coconut milk</p>
-                        </div>
-                        <div class="menu-item"><span class="menu-title">Margarita</span>
-                            <p class="menu-desc">Orange juice, lime juice</p>
-                        </div>
-                    </div>
+            <!-- Recommendations -->
+            <section class="recommendations">
+                <h2>Chef's Recommendations</h2>
+                <div id="recommendations-list" class="recommendations-grid">
+                    <!-- Populated by JS -->
                 </div>
-                <div class="page-number">2</div>
-            </div>
-
-            <!-- Page 4: Salads -->
-            <div class="page" id="salads">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Salads</h2>
-                    </div>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Vinaigrette Dressing</span></div>
-                        <div class="menu-item"><span class="menu-title">Creamy Mayonnaise Dressing</span></div>
-                        <div class="menu-item"><span class="menu-title">Fresh Green Salad</span></div>
-                        <div class="menu-item"><span class="menu-title">Russian Salad</span></div>
-                        <div class="menu-item"><span class="menu-title">Mexican Salad</span></div>
-                        <div class="menu-item"><span class="menu-title">Sprouted Salad</span></div>
-                        <div class="menu-item"><span class="menu-title">American Corn Salad</span></div>
-                        <div class="menu-item"><span class="menu-title">Cold Pasta</span></div>
-                        <div class="menu-item"><span class="menu-title">Thai Sam Tam</span></div>
-                        <div class="menu-item"><span class="menu-title">Chick Pea & Peanut Salad</span></div>
-                        <div class="menu-item"><span class="menu-title">Afghan Salad</span></div>
-                    </div>
-                </div>
-                <div class="page-number">3</div>
-            </div>
-
-            <!-- Page 5: Thai & Chinese Soups -->
-            <div class="page" id="soups">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Soups</h2>
-                    </div>
-
-                    <h3 style="color: var(--heading-color); margin-bottom: 5px;">Thai</h3>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Burmese Khow Suey Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Malaysian Laksa Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Thai Coconut Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Tom Kha Ghai</span></div>
-                    </div>
-
-                    <h3 style="color: var(--heading-color); margin-bottom: 5px; margin-top: 15px;">Chinese</h3>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Eight Treasure Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Dumpling Coriander Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Burnt Ginger Garlic Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Cheese Corn Tomato Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Roasted Red Peppers</span></div>
-                        <div class="menu-item"><span class="menu-title">Bell Pepper Cashew Nut</span></div>
-                    </div>
-                </div>
-                <div class="page-number">4</div>
-            </div>
-
-            <!-- Page 6: More Soups & Mexican -->
-            <div class="page">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Soups</h2>
-                    </div>
-
-                    <h3 style="color: var(--heading-color); margin-bottom: 5px;">Mexican</h3>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Mexican Tortilla Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Chipotle Veg. Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Mexican Bisque Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Mexican Cilantro Soup</span></div>
-                    </div>
-
-                    <h3 style="color: var(--heading-color); margin-bottom: 5px; margin-top: 15px;">Chinese (Cont.)</h3>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Tempura Soba Noodle</span></div>
-                        <div class="menu-item"><span class="menu-title">Asian Green Soup</span></div>
-                    </div>
-                </div>
-                <div class="page-number">5</div>
-            </div>
-
-            <!-- Page 7: Continental Soups -->
-            <div class="page">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Soups</h2>
-                    </div>
-                    <h3 style="color: var(--heading-color); margin-bottom: 5px;">Continental</h3>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Classic Minestrone</span></div>
-                        <div class="menu-item"><span class="menu-title">Roasted Tomato Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Tomato Cheese Basil</span></div>
-                        <div class="menu-item"><span class="menu-title">Broccoli Almond Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Jalapeno Cheese Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Green Minestrone Soup</span></div>
-                        <div class="menu-item"><span class="menu-title">Roasted Pumpkin Rosemary</span></div>
-                        <div class="menu-item"><span class="menu-title">Spaghetti Arabietta</span></div>
-                        <div class="menu-item"><span class="menu-title">Tomato Red Bisque</span></div>
-                        <div class="menu-item"><span class="menu-title">Three Pepper Herb Soup</span></div>
-                    </div>
-                </div>
-                <div class="page-number">6</div>
-            </div>
-
-            <!-- Page 8: Starters I -->
-            <div class="page" id="starters-1">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Starters</h2>
-                    </div>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Signature Roll</span></div>
-                        <div class="menu-item"><span class="menu-title">Oriental Cigar</span></div>
-                        <div class="menu-item"><span class="menu-title">Hara Kachha Gola</span></div>
-                        <div class="menu-item"><span class="menu-title">Turkish Sambusek</span></div>
-                        <div class="menu-item"><span class="menu-title">Tomato Basil Bruschetta</span></div>
-                        <div class="menu-item"><span class="menu-title">Shanghai Paneer</span></div>
-                        <div class="menu-item"><span class="menu-title">Spinach Shanghai Balls</span></div>
-                        <div class="menu-item"><span class="menu-title">Panni (Coleslaw/Mexican)</span></div>
-                        <div class="menu-item"><span class="menu-title">Tulsi Malai Paneer Tikka</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Tikka Kali Mirch</span></div>
-                    </div>
-                </div>
-                <div class="page-number">7</div>
-            </div>
-
-            <!-- Page 9: Starters II -->
-            <div class="page" id="starters-2">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Starters</h2>
-                    </div>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Hariyali Paneer Tikka</span></div>
-                        <div class="menu-item"><span class="menu-title">Lal Mirch Ka Paneer Tikka</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Mughlai Tikka</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Achari Tikka</span></div>
-                        <div class="menu-item"><span class="menu-title">Soya Ki Shami Kebabs</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Koliwada</span></div>
-                        <div class="menu-item"><span class="menu-title">Baked Bread Temletes</span></div>
-                        <div class="menu-item"><span class="menu-title">Cheese Chilli Open Toast</span></div>
-                        <div class="menu-item"><span class="menu-title">Teiryaki Grilled Veg</span></div>
-                        <div class="menu-item"><span class="menu-title">Crustini</span></div>
-                        <div class="menu-item"><span class="menu-title">Kafe Cottage Cheese</span></div>
-                    </div>
-                </div>
-                <div class="page-number">8</div>
-            </div>
-
-            <!-- Page 10: Starters III -->
-            <div class="page" id="starters-3">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Starters</h2>
-                    </div>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Rosemary Potato Satay</span></div>
-                        <div class="menu-item"><span class="menu-title">Black Beans Chilli Pop</span></div>
-                        <div class="menu-item"><span class="menu-title">Hungarian Style Empanadas</span></div>
-                        <div class="menu-item"><span class="menu-title">Baby Potato Dumplings</span></div>
-                        <div class="menu-item"><span class="menu-title">Cottage Cheese Scoopers</span></div>
-                        <div class="menu-item"><span class="menu-title">Gochungay Fried Fall Squash</span></div>
-                        <div class="menu-item"><span class="menu-title">Corian Roll</span></div>
-
-                        <div style="margin-top: 15px; border-top: 1px dotted #ccc; padding-top: 10px;">
-                            <strong style="color: var(--heading-color);">Gourmet Starters</strong>
-                            <p style="font-size: 0.85rem;">Corn Bell Pepper Bites • Cottage Cheese Tomato Pesto •
-                                Watermelon Sumar Que</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="page-number">9</div>
-            </div>
-
-            <!-- Page 11: Main Course I -->
-            <div class="page" id="main-course-1">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Main Course</h2>
-                    </div>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Paneer Lababdar</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Butter Masala</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Makhani</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Kadai</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Tikka Masala</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Do Pyaza</span></div>
-                        <div class="menu-item"><span class="menu-title">Paneer Pasanda</span></div>
-                        <div class="menu-item"><span class="menu-title">Veg Kofta Curry</span></div>
-                        <div class="menu-item"><span class="menu-title">Malai Kofta</span></div>
-                        <div class="menu-item"><span class="menu-title">Kashmiri Dum Aloo</span></div>
-                    </div>
-                </div>
-                <div class="page-number">10</div>
-            </div>
-
-            <!-- Page 12: Main Course II -->
-            <div class="page" id="main-course-2">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Main Course</h2>
-                    </div>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Jeera Aloo</span></div>
-                        <div class="menu-item"><span class="menu-title">Aloo Mutter</span></div>
-                        <div class="menu-item"><span class="menu-title">Mix Veg</span></div>
-                        <div class="menu-item"><span class="menu-title">Veg Handi</span></div>
-                        <div class="menu-item"><span class="menu-title">Veg Kolhapuri</span></div>
-                        <div class="menu-item"><span class="menu-title">Dal Fry / Dal Tadka</span></div>
-                        <div class="menu-item"><span class="menu-title">Dal Makhani</span></div>
-                        <div class="menu-item"><span class="menu-title">Rajma Masala</span></div>
-                        <div class="menu-item"><span class="menu-title">Chole Masala</span></div>
-                        <div class="menu-item"><span class="menu-title">Punjabi Kadhi</span></div>
-                    </div>
-                </div>
-                <div class="page-number">11</div>
-            </div>
-
-            <!-- Page 13: Breads & Rice -->
-            <div class="page" id="breads-rice">
-                <div class="page-content">
-                    <div class="page-header">
-                        <h2>Breads & Rice</h2>
-                    </div>
-                    <div class="menu-grid">
-                        <div class="menu-item"><span class="menu-title">Tandoori Roti</span></div>
-                        <div class="menu-item"><span class="menu-title">Butter Roti</span></div>
-                        <div class="menu-item"><span class="menu-title">Lachha Paratha</span></div>
-                        <div class="menu-item"><span class="menu-title">Plain Naan</span></div>
-                        <div class="menu-item"><span class="menu-title">Butter Naan</span></div>
-                        <div class="menu-item"><span class="menu-title">Garlic Naan</span></div>
-                        <div class="menu-item"><span class="menu-title">Cheese Naan</span></div>
-                        <div class="menu-item"><span class="menu-title">Steam Rice</span></div>
-                        <div class="menu-item"><span class="menu-title">Jeera Rice</span></div>
-                        <div class="menu-item"><span class="menu-title">Veg Pulao</span></div>
-                        <div class="menu-item"><span class="menu-title">Veg Biryani</span></div>
-                        <div class="menu-item"><span class="menu-title">Dal Khichdi</span></div>
-                        <div class="menu-item"><span class="menu-title">Plain Curd</span></div>
-                        <div class="menu-item"><span class="menu-title">Boondi Raita</span></div>
-                    </div>
-                </div>
-                <div class="page-number">12</div>
-            </div>
-
-            <!-- Page 14: Back Cover -->
-            <div class="page -hard">
-                <div class="cover-content">
-                    <h2 class="cover-title">Contact Us</h2>
-                    <div style="color: #d4a373; font-size: 1.1rem; line-height: 1.8;">
-                        <p>📍 Kalpana Society, Navrangpura, Ahmedabad</p>
-                        <p>📞 +91 98980 02719</p>
-                        <p>✉️ chefdhwani99@gmail.com</p>
-                    </div>
-                    <img src="./assets/logo.webp" alt="Chef4U Logo" class="cover-logo" style="margin-top: 50px;">
-                    <p style="font-size: 0.8rem; opacity: 0.7;">www.chef4ucatering.com</p>
-                </div>
-            </div>
-
+            </section>
         </div>
 
-        <div class="controls">
-            <button class="btn-control btn-first" aria-label="First Page">First Page</button>
-            <button class="btn-control btn-prev" aria-label="Previous Page">&#8592;</button>
-            <button class="btn-control btn-next" aria-label="Next Page">&#8594;</button>
+        <!-- VIEW 2: Flipbook (Hidden by default) -->
+        <div id="book-wrapper" class="view-section book-wrapper hidden">
+            <div class="book-controls-top">
+                <button id="btn-back-overview" class="btn-back">← Back to Overview</button>
+            </div>
+
+            <div id="book">
+                <!-- Pages populated dynamically by JS -->
+            </div>
+
+            <div class="controls">
+                <button class="btn-control btn-prev" aria-label="Previous Page">←</button>
+                <button class="btn-control btn-next" aria-label="Next Page">→</button>
+            </div>
+            <p class="book-hint">Use arrow keys or click corners to flip</p>
         </div>
-    </div>
+
+    </main>
 
     <!-- Footer -->
     <footer id="contact_us">
@@ -412,29 +131,24 @@
                     <img src="./assets/logo.webp" alt="Chef4U">
                 </div>
                 <p>Delighting guests with exceptional catering for over 10 years.</p>
+
                 <div class="social-links">
-                    <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
+                    <a href="https://www.instagram.com/_.chef4u_99/" aria-label="Instagram" target="_blank"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg></a>
-                    <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    <a href="https://www.facebook.com/people/Chef4u/61569903014177/" aria-label="Facebook"
+                        target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                         </svg></a>
-                    <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                            </path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg></a>
                 </div>
             </div>
+
             <div class="footer-col links">
                 <h3>Quick Links</h3>
                 <ul>
@@ -445,7 +159,7 @@
                 </ul>
             </div>
             <div style="margin-top: 20px;">
-                <a href="index.html#contactForm" class="btn btn-primary">Book Now</a>
+                <a href="#contactForm" class="btn btn-primary">Book Now</a>
                 <div class="contact-info">
                     <p>📍 Kalpana Society, Navrangpura, Ahmedabad</p>
                     <p>📞 <a href="tel:+919898002719" style="color: inherit; text-decoration: none;">+91 98980 02719</a>
@@ -467,10 +181,8 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
-    <script src="./js/flipbook.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/menu-data.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
 
 </html>
