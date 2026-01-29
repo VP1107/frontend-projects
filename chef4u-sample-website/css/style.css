@@ -1290,7 +1290,9 @@ footer {
 .hamburger.active span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
 }
-
+@media only screen and (max-width: 968px){
+    
+}
 
 /* Tablet & Mobile */
 @media (max-width: 968px) {
@@ -1911,43 +1913,6 @@ body.fade-out::before {
     color: var(--accent-color);
     background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
-}
-
-/* FSSAI Badge */
-.fssai-badge {
-    margin-top: 20px;
-    display: inline-block;
-}
-
-.fssai-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.fssai-icon {
-    font-size: 1.5rem;
-}
-
-.fssai-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.fssai-title {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--text-light);
-    line-height: 1.2;
-}
-
-.fssai-id {
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.6);
 }
 
 /* --- Toast Notification --- */
