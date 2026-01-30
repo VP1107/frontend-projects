@@ -23,6 +23,12 @@ body {
     overflow-x: hidden;
 }
 
+/* CRITICAL FIX: Ensures header stays on top of hero section */
+header {
+    position: relative;
+    z-index: 10009;
+}
+
 /* Hide content during intro */
 body.intro-active {
     overflow: hidden;
@@ -1514,10 +1520,6 @@ html.intro-seen .intro-overlay {
         padding: 1rem;
     }
 
-    .nav-links {
-        display: none;
-    }
-
     .hero,
     .about,
     .contact {
@@ -2346,5 +2348,350 @@ textarea:focus {
     .cookie-content {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* Responsive Mobile Menu */
+/* ============================================
+   RESPONSIVE MOBILE NAVIGATION
+   ============================================ */
+
+/* Hamburger Menu - Hidden on Desktop */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 10008;
+    position: relative;
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--navy-blue);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    /* Show Hamburger */
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Hamburger Animation */
+    .hamburger-menu.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Mobile Nav Menu */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        z-index: 10007;
+        padding: 80px 20px 40px;
+        gap: 25px;
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        padding: 12px 20px;
+        display: block;
+        width: 100%;
+    }
+
+    /* Hide WhatsApp button on mobile (it's in floating button) */
+    .whatsapp-icon {
+        display: none;
+    }
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10006;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Global Responsive Layout Adjustments */
+@media (max-width: 992px) {
+
+    /* Sections Global */
+    section {
+        padding: 60px 20px !important;
+        /* Override section paddings */
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 100px !important;
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-content {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    /* About Section */
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about::before {
+        width: 300px;
+        height: 300px;
+        top: -10%;
+        right: -10%;
+    }
+
+    .about-content {
+        align-items: center;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Teacher Section */
+    .teacher {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .teacher-content h2,
+    .teacher-content h3,
+    .teacher-content h4 {
+        text-align: center;
+    }
+
+    .qualifications {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .teacher-image img {
+        max-width: 100%;
+        width: 350px;
+    }
+
+    /* Why Choose Us */
+    .why-choose-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .features-left,
+    .features-right {
+        order: 2;
+    }
+
+    .why-choose-image {
+        order: 1;
+    }
+
+    .why-choose-image img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    /* Contact Section */
+    .contact {
+        flex-direction: column;
+    }
+
+    .contact-image iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .contact-form-container {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header h2 {
+        font-size: 32px;
+    }
+
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .testimonials-header h2 {
+        font-size: 32px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-section {
+        align-items: center;
+    }
+}
+/* ===================================
+   FORM VALIDATION STATES
+   =================================== */
+.form-group input.valid,
+.form-group select.valid,
+.form-group textarea.valid {
+    border-color: #10B981;
+}
+
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+    border-color: #EF4444;
+}
+
+/* ===================================
+   SKELETON LOADING STATES
+   =================================== */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+body:not(.content-loaded) .hero-content h1::before {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 60px;
+    margin-bottom: 20px;
+}
+/* ===================================
+   MOBILE TOUCH-FRIENDLY OPTIMIZATIONS
+   =================================== */
+@media (max-width: 768px) {
+    /* Touch-friendly buttons - minimum 48px tap target */
+    button, 
+    .nav-links a, 
+    .pricing-btn,
+    .hero-button,
+    .about-button,
+    .submit-button {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 14px 24px;
+    }
+    
+    /* Larger tap targets for interactive elements */
+    .faq-question {
+        padding: 20px;
+        min-height: 48px;
+    }
+    
+    /* Gallery navigation buttons */
+    .gallery-btn {
+        min-width: 48px;
+        min-height: 48px;
+        padding: 12px;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+        width: 56px;
+        height: 56px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    /* WhatsApp floating button */
+    .float-whatsapp {
+        width: 56px;
+        height: 56px;
+        bottom: 20px;
+        right: 90px;
     }
 }

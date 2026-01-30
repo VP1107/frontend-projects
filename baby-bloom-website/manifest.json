@@ -1,0 +1,21 @@
+{
+  "name": "Baby Bloom - Garbhasanskar",
+  "short_name": "Baby Bloom",
+  "description": "Expert prenatal care combining ancient Vedic wisdom with modern science",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ed1e79",
+  "icons": [
+    {
+      "src": "/assets/logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/assets/logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}

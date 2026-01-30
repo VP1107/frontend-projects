@@ -4,9 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://www.googletagmanager.com https://script.google.com https://*.firebaseapp.com https://*.firebase.googleapis.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' data: https: blob:;
+        connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://script.google.com https://script.googleusercontent.com https://*.firebase.googleapis.com https://*.firebasestorage.app;
+        frame-src https://www.youtube.com https://maps.google.com https://www.google.com;
+    ">
+
     <meta name="description"
         content="Baby Bloom - Experience the joy of pregnancy with our Garbhasanskar program. Expert prenatal care for healthy mother, happy baby, bright future.">
     <title>Baby Bloom | Garbhasanskar & Prenatal Care</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ed1e79">
+    <link rel="apple-touch-icon" href="/assets/logo.webp">
+
+    <!-- Resource Hints for Performance -->
+    <link rel="preconnect" href="https://firebasestorage.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.gstatic.com">
+    <link rel="preload" href="./css/style.css" as="style">
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +72,7 @@
       "name": "Baby Bloom Garbhasanskar",
       "image": "https://babybloom.com/assets/logo.webp",
       "telephone": "+91 98765 43210",
-      "email": "info@babybloom.com",
+      "email": "thebabybloomindia@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "123 Baby Bloom Center",
@@ -60,6 +83,25 @@
       },
       "url": "https://babybloom.com/",
       "priceRange": "₹4,999 - ₹11,999",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "2"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Ananya Patel"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "The personalized attention and expert guidance made all the difference. I felt supported every step of the way. Highly recommend Baby Bloom!"
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Sneha Reddy"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "I was skeptical at first, but the results speak for themselves. The music therapy and positive affirmations created such a beautiful bond."
+        }
+      ],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -81,6 +123,123 @@
         }
       ]
     }
+    </script>
+
+    <!-- Blog Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Essential Nutrition for Two",
+      "datePublished": "2024-01-05",
+      "author": {"@type": "Person", "name": "Dr. Ananya Sharma"},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Baby Bloom",
+        "logo": {"@type": "ImageObject", "url": "https://babybloom.com/assets/logo.webp"}
+      },
+      "image": "https://babybloom.com/assets/blog-1.png",
+      "description": "Discover the power of traditional Indian superfoods perfect for your trimester."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "5 Calming Yoga Poses",
+      "datePublished": "2024-01-02",
+      "author": {"@type": "Person", "name": "Dr. Ananya Sharma"},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Baby Bloom",
+        "logo": {"@type": "ImageObject", "url": "https://babybloom.com/assets/logo.webp"}
+      },
+      "image": "https://babybloom.com/assets/blog-2.png",
+      "description": "Simple poses to relieve back pain and prepare your body for labor."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Bonding Before Birth",
+      "datePublished": "2023-12-28",
+      "author": {"@type": "Person", "name": "Dr. Ananya Sharma"},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Baby Bloom",
+        "logo": {"@type": "ImageObject", "url": "https://babybloom.com/assets/logo.webp"}
+      },
+      "image": "https://babybloom.com/assets/hero-image.webp",
+      "description": "How Garbhasanskar helps build a deep connection with your unborn child."
+    }
+    </script>
+
+
+    <!-- Prevent flash of default content before Firebase loads -->
+    <style>
+        /* Hide text content until Firebase loads */
+        .hero-content h1,
+        .hero-content p,
+        .hero-button,
+        .about-content h2,
+        .about-content p,
+        .teacher-content h2,
+        .teacher-content h3,
+        .teacher-content h4,
+        .teacher-content p,
+        .feature-box h3,
+        .feature-box p,
+        .pricing-card .price,
+        .testimonial-name,
+        .testimonial-text,
+        .blog-card h3,
+        .contact-item p {
+            visibility: hidden;
+        }
+
+        /* Show content when Firebase has loaded */
+        body.content-loaded .hero-content h1,
+        body.content-loaded .hero-content p,
+        body.content-loaded .hero-button,
+        body.content-loaded .about-content h2,
+        body.content-loaded .about-content p,
+        body.content-loaded .teacher-content h2,
+        body.content-loaded .teacher-content h3,
+        body.content-loaded .teacher-content h4,
+        body.content-loaded .teacher-content p,
+        body.content-loaded .feature-box h3,
+        body.content-loaded .feature-box p,
+        body.content-loaded .pricing-card .price,
+        body.content-loaded .testimonial-name,
+        body.content-loaded .testimonial-text,
+        body.content-loaded .blog-card h3,
+        body.content-loaded .contact-item p {
+            visibility: visible;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <!-- Fallback: Show content after 1 second max wait -->
+    <script>
+        setTimeout(function () {
+            if (!document.body.classList.contains('content-loaded')) {
+                document.body.classList.add('content-loaded');
+                console.log('⏱️ Max wait reached, showing content');
+            }
+        }, 1000);
     </script>
 </head>
 
@@ -165,7 +324,6 @@
         <div class="video-modal-content">
             <button class="close-modal" aria-label="Close Video Modal">&times;</button>
             <div class="video-container">
-                <!-- Placeholder for dynamic video content -->
                 <div id="videoPlaceholder" class="video-placeholder">
                     <p>Video loading...</p>
                 </div>
@@ -178,7 +336,6 @@
 
     <!-- Zoom Transition Overlay -->
     <div class="zoom-transition" id="zoomTransition"></div>
-
     <header>
         <nav class="navbar">
             <div class="logo">
@@ -212,6 +369,10 @@
         </nav>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
@@ -229,7 +390,7 @@
         </div>
         <div class="hero-image">
             <img src="./assets/hero-image.webp" alt="Happy pregnancy journey with Baby Bloom" width="500" height="500"
-                fetchpriority="high">
+                fetchpriority="high" decoding="sync">
         </div>
     </section>
 
@@ -252,7 +413,7 @@
         </div>
         <div class="about-image">
             <img src="./assets/about-image.webp" alt="About Baby Bloom - Caring for mothers" loading="lazy" width="450"
-                height="450"
+                height="450" decoding="async"
                 onerror="this.onerror=null; this.src='https://via.placeholder.com/450x450?text=About+Image';">
         </div>
     </section>
@@ -283,7 +444,7 @@
         </div>
         <div class="teacher-image">
             <img src="./assets/teacher-image.webp" alt="Dr. Ananya Sharma - Garbhasanskar Expert" loading="lazy"
-                width="450" height="550"
+                width="450" height="550" decoding="async"
                 onerror="this.onerror=null; this.src='https://via.placeholder.com/450x550?text=Expert+Image';">
         </div>
     </section>
@@ -591,55 +752,55 @@
         </div>
         <div class="faqs-container">
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-1">
                     <h3>What is Garbhasanskar?</h3>
                     <span class="faq-toggle">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-1">
                     <p>Garbhasanskar is an ancient Indian practice that focuses on the physical, mental, and spiritual
                         development of the unborn child. It involves various activities like meditation, music therapy,
                         positive affirmations, and healthy lifestyle practices during pregnancy.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-2">
                     <h3>When should I start Garbhasanskar?</h3>
                     <span class="faq-toggle">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-2">
                     <p>Ideally, Garbhasanskar can be started as early as the first trimester. However, it's never too
                         late to begin. Many mothers start in their second trimester and still experience wonderful
                         benefits for themselves and their babies.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-3">
                     <h3>What are the benefits of Garbhasanskar?</h3>
                     <span class="faq-toggle">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-3">
                     <p>Benefits include reduced stress and anxiety, better bonding with your baby, improved sleep,
                         positive emotional development of the child, enhanced cognitive abilities, and a more peaceful
                         pregnancy experience overall.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-4">
                     <h3>How are the sessions conducted?</h3>
                     <span class="faq-toggle">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-4">
                     <p>Our sessions are conducted both online and offline. We offer personalized one-on-one sessions,
                         group workshops, and self-paced learning modules. Each session includes guided meditation, music
                         therapy, diet guidance, and interactive activities.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-5">
                     <h3>Is Garbhasanskar scientifically proven?</h3>
                     <span class="faq-toggle">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-5">
                     <p>Yes! Modern research supports many Garbhasanskar practices. Studies show that babies can hear and
                         respond to sounds from the womb, maternal stress affects fetal development, and positive
                         prenatal experiences contribute to better outcomes.</p>
@@ -828,7 +989,7 @@
                         <path
                             d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                     </svg>
-                    <p>info@babybloom.com</p>
+                    <p>thebabybloomindia@gmail.com</p>
                 </div>
             </div>
             <div class="footer-section footer-hours">
@@ -847,7 +1008,8 @@
     </footer>
 
     <!-- Floating Elements -->
-    <a href="https://wa.me/919876543210" class="float-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+    <a href="https://api.whatsapp.com/send?phone=919876543210&text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20the%20Garbhasanskar%20program"
+        class="float-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
             <path
                 d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
@@ -873,6 +1035,18 @@
         </div>
     </div>
 
+    <!-- Firebase SDKs v8 (compatible with firebase-config.js syntax) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script src="./js/firebase-config.js"></script>
+
+    <!-- Content Loader (Firebase version) -->
+    <script src="./js/content-loader-firebase.js"></script>
+
+    <!-- Main Website Scripts -->
     <script src="./js/script.js"></script>
 </body>
 

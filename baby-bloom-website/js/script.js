@@ -18,8 +18,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function runIntroAnimation() {
+    // Detect mobile device
+    const isMobile = window.innerWidth < 768;
 
-    const stages = [
+    // Use shorter animation on mobile
+    const stages = isMobile ? [
+        { id: 'stage1', delay: 0 },
+        { id: 'stage4', delay: 1200 },
+        { id: 'introLogo', delay: 2400 }
+    ] : [
         { id: 'stage1', delay: 0 },
         { id: 'stage2', delay: 900 },
         { id: 'stage3', delay: 1800 },
@@ -30,16 +37,13 @@ function runIntroAnimation() {
         { id: 'introLogo', delay: 6300 }
     ];
 
-
     const firstStage = document.getElementById(stages[0].id);
     if (!firstStage) return; // Exit if intro elements are missing (e.g., inner pages)
 
     firstStage.classList.add('active');
 
-
     const progressDots = document.querySelectorAll('.progress-dot');
     const progressLines = document.querySelectorAll('.progress-line');
-
 
     stages.forEach((stage, index) => {
         if (index === 0) return; // Skip first, already shown
@@ -54,7 +58,6 @@ function runIntroAnimation() {
             const currStage = document.getElementById(stage.id);
             if (currStage) currStage.classList.add('active');
 
-
             if (progressDots[index - 1]) {
                 progressDots[index - 1].classList.remove('active');
                 progressDots[index - 1].classList.add('completed');
@@ -68,10 +71,10 @@ function runIntroAnimation() {
         }, stage.delay);
     });
 
-
+    // End intro faster on mobile (3.5s) vs desktop (8s)
     setTimeout(() => {
         endIntro();
-    }, 8000);
+    }, isMobile ? 3500 : 8000);
 }
 
 let isSkipping = false;
@@ -241,24 +244,49 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function initializeSiteFeatures() {
-    // FAQ Toggle
+    // FAQ Toggle with Keyboard Navigation
     const faqItems = document.querySelectorAll('.faq-item');
 
-    faqItems.forEach(item => {
+    faqItems.forEach((item, index) => {
         const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
 
-        question.addEventListener('click', () => {
-            // Close other open FAQs
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
-                }
-            });
+        // Ensure answer has ID for aria-controls
+        if (!answer.id) {
+            answer.id = `faq-answer-${index + 1}`;
+        }
 
-            // Toggle current FAQ
-            item.classList.toggle('active');
+        // Click handler
+        question.addEventListener('click', function () {
+            toggleFAQ(item, question);
+        });
+
+        // Keyboard navigation handler
+        question.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleFAQ(item, question);
+            }
         });
     });
+
+    function toggleFAQ(item, question) {
+        const isActive = item.classList.contains('active');
+
+        // Close other open FAQs
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+                const otherQuestion = otherItem.querySelector('.faq-question');
+                otherQuestion.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Toggle current FAQ
+        item.classList.toggle('active');
+        question.setAttribute('aria-expanded', !isActive);
+    }
+
 
     // Smooth Scroll for Navigation Links
     const navLinks = document.querySelectorAll('a[href^="#"]');
@@ -283,7 +311,7 @@ function initializeSiteFeatures() {
 
     // Form Validation and Submission
     const contactForm = document.getElementById('contactForm');
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzRxKyko0DzVQfNbT9nO3c8VVrfoE8RdkUvigRqgKgDUjU4t_4IEpDALN-mFzjhAMs/exec"; // User must update this!
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzIfS6xObQ99fqa9hSM8rl5STl4GYGiLVdULaM9mR9imSKB_MjwwnHG9bzt9IP5pdBf/exec"; // User must update this!
 
     if (contactForm) {
         // Create Overlay dynamically
@@ -303,17 +331,16 @@ function initializeSiteFeatures() {
 
             // Get form values
             const elements = this.elements;
-            const data = {
-                name: elements.name.value.trim(),
-                email: elements.email.value.trim(),
-                phone: elements.phone.value.trim(),
-                trimester: elements.trimester.value,
-                message: elements.message.value.trim()
-            };
+            const formData = new FormData();
+            formData.append('name', elements.name.value.trim());
+            formData.append('email', elements.email.value.trim());
+            formData.append('phone', elements.phone.value.trim());
+            formData.append('trimester', elements.trimester.value);
+            formData.append('message', elements.message.value.trim());
 
             // Basic validation
-            if (!data.name || !data.email || !data.phone || !data.trimester) {
-                alert('Please fill in all required fields.'); // Fallback valid
+            if (!formData.get('name') || !formData.get('email') || !formData.get('phone') || !formData.get('trimester')) {
+                alert('Please fill in all required fields.');
                 return;
             }
 
@@ -323,15 +350,29 @@ function initializeSiteFeatures() {
             btn.innerHTML = 'Sending...';
             btn.disabled = true;
 
-            const isPlaceholderURL = SCRIPT_URL.includes("script.google.com") === false || SCRIPT_URL.length < 50;
-
-            setTimeout(() => {
-                overlay.classList.add('active');
-                contactForm.reset();
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-                console.log("Form Data Captured (Demo Mode):", data);
-            }, 1500);
+            // Send to Google Apps Script
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        overlay.classList.add('active');
+                        contactForm.reset();
+                        console.log('Form submitted successfully!');
+                    } else {
+                        alert('Error: ' + (data.message || 'Form submission failed'));
+                    }
+                })
+                .catch(error => {
+                    console.error('Submission error:', error);
+                    alert('Failed to submit form. Please try again.');
+                })
+                .finally(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                });
         });
     }
 
@@ -514,11 +555,23 @@ function initializeSiteFeatures() {
     // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger-menu');
     const navLinksList = document.querySelector('.nav-links');
+    const overlay = document.getElementById('menuOverlay');
 
-    if (hamburger && navLinksList) {
+    if (hamburger && navLinksList && overlay) {
+        // Open menu
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navLinksList.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navLinksList.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        // Close when clicking overlay
+        overlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinksList.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
         });
 
         // Close menu when clicking a link
@@ -526,6 +579,8 @@ function initializeSiteFeatures() {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navLinksList.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
         });
     }
@@ -798,4 +853,166 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500); // Wait for transition
         }
     }
+
+    // ===================================
+    // GOOGLE APPS SCRIPT FORM SUBMISSION
+    // ===================================
+
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby79nxwnWppEBHLcsDptGtFBHC53MjT_rmxfsq5DWL2-Yf8O2VlzeSme8knBdlQ55zq/exec';
+
+    // Rate limiting for form submissions
+    const submissionTracker = {
+        lastSubmit: 0,
+        minInterval: 60000, // 1 minute
+
+        canSubmit() {
+            const now = Date.now();
+            if (now - this.lastSubmit < this.minInterval) {
+                const waitTime = Math.ceil((this.minInterval - (now - this.lastSubmit)) / 1000);
+                return { allowed: false, waitTime };
+            }
+            this.lastSubmit = now;
+            return { allowed: true };
+        }
+    };
+
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Check rate limiting
+            const rateCheck = submissionTracker.canSubmit();
+            if (!rateCheck.allowed) {
+                showNotification(`Please wait ${rateCheck.waitTime} seconds before submitting again`, 'error');
+                return;
+            }
+
+            // Disable submit button and show loading
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+
+            try {
+                // Create FormData
+                const formData = new FormData(this);
+
+                // Send to Google Apps Script
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                // Check if response was successful (status 200-299)
+                if (response.ok) {
+                    showNotification('Thank you! Your consultation request has been submitted successfully.', 'success');
+                    this.reset();
+
+                    // Remove validation classes
+                    const inputs = this.querySelectorAll('input, select, textarea');
+                    inputs.forEach(input => {
+                        input.classList.remove('valid', 'invalid');
+                        const error = input.parentElement.querySelector('.field-error');
+                        if (error) error.remove();
+                    });
+                } else {
+                    // Revert rate limit on failure so user can retry
+                    submissionTracker.lastSubmit = 0;
+                    showNotification('Submission failed. Please try again or contact us directly.', 'error');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                // Revert rate limit on error so user can retry
+                submissionTracker.lastSubmit = 0;
+                showNotification('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+        });
+    }
+
+    // ===================================
+    // FORM VALIDATION WITH REAL-TIME FEEDBACK
+    // ===================================
+
+    function initFormValidation() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+
+        const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+
+        inputs.forEach(input => {
+            input.addEventListener('blur', function () {
+                validateField(this);
+            });
+
+            input.addEventListener('input', function () {
+                if (this.classList.contains('invalid')) {
+                    validateField(this);
+                }
+            });
+        });
+    }
+
+    function validateField(field) {
+        const value = field.value.trim();
+        let isValid = true;
+        let message = '';
+
+        if (field.hasAttribute('required') && !value) {
+            isValid = false;
+            message = 'This field is required';
+        } else if (field.type === 'email' && value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                isValid = false;
+                message = 'Please enter a valid email';
+            }
+        } else if (field.type === 'tel' && value) {
+            const phoneRegex = /^[+]?[\d\s-()]+$/;
+            if (!phoneRegex.test(value) || value.length < 10) {
+                isValid = false;
+                message = 'Please enter a valid phone number';
+            }
+        }
+
+        // Visual feedback
+        if (!isValid) {
+            field.classList.add('invalid');
+            field.classList.remove('valid');
+            showFieldError(field, message);
+        } else if (value) {
+            field.classList.add('valid');
+            field.classList.remove('invalid');
+            removeFieldError(field);
+        }
+
+        return isValid;
+    }
+
+    function showFieldError(field, message) {
+        removeFieldError(field); // Remove existing
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'field-error';
+        errorDiv.textContent = message;
+        errorDiv.style.cssText = `
+            color: #EF4444;
+            font-size: 13px;
+            margin-top: 5px;
+        `;
+        field.parentElement.appendChild(errorDiv);
+    }
+
+    function removeFieldError(field) {
+        const error = field.parentElement.querySelector('.field-error');
+        if (error) error.remove();
+    }
+
+    // Initialize form validation
+    initFormValidation();
 });

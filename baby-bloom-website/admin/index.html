@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Bloom - Admin Panel</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="../assets/logo.webp" alt="Baby Bloom Logo" class="login-logo">
+                <h1>Admin Panel</h1>
+                <p>Content Management System</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required
+                        autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <p class="login-hint">Use your Firebase credentials</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo.webp" alt="Baby Bloom" class="sidebar-logo">
+                <h2>Baby Bloom</h2>
+                <p>Admin Panel</p>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-tab="hero">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    </svg>
+                    Hero Section
+                </button>
+                <button class="nav-item" data-tab="about">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="16" x2="12" y2="12" />
+                        <line x1="12" y1="8" x2="12.01" y2="8" />
+                    </svg>
+                    About Us
+                </button>
+                <button class="nav-item" data-tab="expert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    Expert Info
+                </button>
+                <button class="nav-item" data-tab="features">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Features
+                </button>
+                <button class="nav-item" data-tab="pricing">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23" />
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                    Pricing
+                </button>
+                <button class="nav-item" data-tab="testimonials">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                    Testimonials
+                </button>
+                <button class="nav-item" data-tab="blog">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                    </svg>
+                    Blog Posts
+                </button>
+                <button class="nav-item" data-tab="contact">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    Contact Info
+                </button>
+                <button class="nav-item" data-tab="images">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                    Images
+                </button>
+                <button class="nav-item" data-tab="settings">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M12 1v6m0 6v6m-9-9h6m6 0h6" />
+                    </svg>
+                    Settings
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn-logout">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1 id="pageTitle">Hero Section</h1>
+                <div class="header-actions">
+                    <button id="previewBtn" class="btn-secondary" title="Preview changes">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        Preview
+                    </button>
+                    <button id="exportBtn" class="btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Export Data
+                    </button>
+                    <button id="importBtn" class="btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="17 8 12 3 7 8" />
+                            <line x1="12" y1="3" x2="12" y2="15" />
+                        </svg>
+                        Import Data
+                    </button>
+                    <button id="undoBtn" class="btn-secondary" title="Undo last saved changes">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M3 7v6h6" />
+                            <path d="M21 17a9 9 0 00-9-9 9 9 0 00-6 2.3L3 13" />
+                        </svg>
+                        Undo
+                    </button>
+                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                </div>
+            </div>
+
+            <!-- Content Tabs -->
+            <div class="content-body">
+                <!-- Hero Section Tab -->
+                <div id="heroTab" class="tab-content active">
+                    <div class="form-section">
+                        <h3>Hero Content</h3>
+                        <div class="form-group">
+                            <label for="heroTitle">Main Heading</label>
+                            <input type="text" id="heroTitle" placeholder="Welcome to Baby Bloom">
+                        </div>
+                        <div class="form-group">
+                            <label for="heroDescription">Description</label>
+                            <textarea id="heroDescription" rows="3"
+                                placeholder="Experience the joy of pregnancy..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="heroButton">Button Text</label>
+                            <input type="text" id="heroButton" placeholder="Book your appointment today">
+                        </div>
+                        <button class="btn-primary save-btn" data-section="hero">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- About Section Tab -->
+                <div id="aboutTab" class="tab-content">
+                    <div class="form-section">
+                        <h3>About Us Content</h3>
+                        <div class="form-group">
+                            <label for="aboutTitle">Section Title</label>
+                            <input type="text" id="aboutTitle" placeholder="About Us">
+                        </div>
+                        <div class="form-group">
+                            <label for="aboutDescription">Description</label>
+                            <textarea id="aboutDescription" rows="6"
+                                placeholder="At Baby Bloom, we are committed..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="aboutButton">Button Text</label>
+                            <input type="text" id="aboutButton" placeholder="Read More">
+                        </div>
+                        <button class="btn-primary save-btn" data-section="about">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- Expert Section Tab -->
+                <div id="expertTab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Expert Information</h3>
+                        <div class="form-group">
+                            <label for="expertSectionTitle">Section Title</label>
+                            <input type="text" id="expertSectionTitle" placeholder="Meet Our Expert">
+                        </div>
+                        <div class="form-group">
+                            <label for="expertName">Expert Name</label>
+                            <input type="text" id="expertName" placeholder="Dr. Ananya Sharma">
+                        </div>
+                        <div class="form-group">
+                            <label for="expertTitle">Professional Title</label>
+                            <input type="text" id="expertTitle" placeholder="MBBS, Garbhasanskar Specialist">
+                        </div>
+                        <div class="form-group">
+                            <label for="expertDescription">Biography</label>
+                            <textarea id="expertDescription" rows="4"
+                                placeholder="With over 15 years of experience..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Qualifications (one per line)</label>
+                            <textarea id="expertQual1" rows="1"
+                                placeholder="Certified Garbhasanskar Trainer"></textarea>
+                            <textarea id="expertQual2" rows="1" placeholder="5000+ Happy Families Guided"></textarea>
+                            <textarea id="expertQual3" rows="1" placeholder="Expert in Yoga & Meditation"></textarea>
+                        </div>
+                        <button class="btn-primary save-btn" data-section="expert">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- Features Tab -->
+                <div id="featuresTab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Why Choose Us Features</h3>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h4>Feature 1</h4>
+                                <input type="text" id="feature1Title" placeholder="Expert Guidance">
+                                <textarea id="feature1Desc" rows="2" placeholder="Description"></textarea>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Feature 2</h4>
+                                <input type="text" id="feature2Title" placeholder="Personalized Care">
+                                <textarea id="feature2Desc" rows="2" placeholder="Description"></textarea>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Feature 3</h4>
+                                <input type="text" id="feature3Title" placeholder="Holistic Approach">
+                                <textarea id="feature3Desc" rows="2" placeholder="Description"></textarea>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Feature 4</h4>
+                                <input type="text" id="feature4Title" placeholder="Flexible Scheduling">
+                                <textarea id="feature4Desc" rows="2" placeholder="Description"></textarea>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Feature 5</h4>
+                                <input type="text" id="feature5Title" placeholder="Community Support">
+                                <textarea id="feature5Desc" rows="2" placeholder="Description"></textarea>
+                            </div>
+                            <div class="feature-item">
+                                <h4>Feature 6</h4>
+                                <input type="text" id="feature6Title" placeholder="Comprehensive Resources">
+                                <textarea id="feature6Desc" rows="2" placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                        <button class="btn-primary save-btn" data-section="features">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- Pricing Tab -->
+                <div id="pricingTab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Pricing Packages</h3>
+                        <div class="pricing-grid">
+                            <div class="pricing-package">
+                                <h4>Silver Package</h4>
+                                <input type="text" id="silverPrice" placeholder="₹4,999">
+                                <input type="text" id="silverSubtitle" placeholder="Essential Care">
+                                <textarea id="silverFeatures" rows="4" placeholder="Features (one per line)"></textarea>
+                            </div>
+                            <div class="pricing-package">
+                                <h4>Gold Package</h4>
+                                <input type="text" id="goldPrice" placeholder="₹7,999">
+                                <input type="text" id="goldSubtitle" placeholder="Complete Wellness">
+                                <textarea id="goldFeatures" rows="5" placeholder="Features (one per line)"></textarea>
+                            </div>
+                            <div class="pricing-package">
+                                <h4>Platinum Package</h4>
+                                <input type="text" id="platinumPrice" placeholder="₹11,999">
+                                <input type="text" id="platinumSubtitle" placeholder="Premium Mother Care">
+                                <textarea id="platinumFeatures" rows="5"
+                                    placeholder="Features (one per line)"></textarea>
+                            </div>
+                        </div>
+                        <button class="btn-primary save-btn" data-section="pricing">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- Testimonials Tab -->
+                <div id="testimonialsTab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Testimonials</h3>
+                        <div class="testimonial-list">
+                            <div class="testimonial-item">
+                                <h4>Testimonial 1</h4>
+                                <input type="text" id="testimonial1Name" placeholder="Ananya Patel">
+                                <input type="text" id="testimonial1Title" placeholder="Mother of Two">
+                                <textarea id="testimonial1Text" rows="3" placeholder="Testimonial text"></textarea>
+                            </div>
+                            <div class="testimonial-item">
+                                <h4>Testimonial 2</h4>
+                                <input type="text" id="testimonial2Name" placeholder="Sneha Reddy">
+                                <input type="text" id="testimonial2Title" placeholder="Working Mom">
+                                <textarea id="testimonial2Text" rows="3" placeholder="Testimonial text"></textarea>
+                            </div>
+                        </div>
+                        <button class="btn-primary save-btn" data-section="testimonials">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- Blog Tab -->
+                <div id="blogTab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Blog Posts</h3>
+                        <div class="blog-list">
+                            <div class="blog-item">
+                                <h4>Blog Post 1</h4>
+                                <input type="text" id="blog1Title" placeholder="Essential Nutrition for Two">
+                                <input type="date" id="blog1Date">
+                                <textarea id="blog1Desc" rows="2" placeholder="Description"></textarea>
+                            </div>
+                            <div class="blog-item">
+                                <h4>Blog Post 2</h4>
+                                <input type="text" id="blog2Title" placeholder="5 Calming Yoga Poses">
+                                <input type="date" id="blog2Date">
+                                <textarea id="blog2Desc" rows="2" placeholder="Description"></textarea>
+                            </div>
+                            <div class="blog-item">
+                                <h4>Blog Post 3</h4>
+                                <input type="text" id="blog3Title" placeholder="Bonding Before Birth">
+                                <input type="date" id="blog3Date">
+                                <textarea id="blog3Desc" rows="2" placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                        <button class="btn-primary save-btn" data-section="blog">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- Contact Tab -->
+                <div id="contactTab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Contact Information</h3>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <input type="tel" id="contactPhone" placeholder="+91 98765 43210">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" placeholder="thebabybloomindia@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactAddress">Address</label>
+                            <textarea id="contactAddress" rows="3"
+                                placeholder="123 Baby Bloom Center, Ahmedabad, Gujarat 380001"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactHours">Working Hours</label>
+                            <textarea id="contactHours" rows="3"
+                                placeholder="Monday - Friday: 9:00 AM - 7:00 PM"></textarea>
+                        </div>
+                        <button class="btn-primary save-btn" data-section="contact">Save Changes</button>
+                    </div>
+                </div>
+
+                <!-- Images Tab -->
+                <div id="imagesTab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Website Images</h3>
+                        <p class="info-text">Upload images to replace current website images. Recommended: Use optimized
+                            WebP or PNG format.</p>
+                        <div class="image-grid">
+                            <div class="image-upload-item">
+                                <label>Hero Image</label>
+                                <input type="file" id="heroImage" accept="image/*">
+                                <div class="image-preview" id="heroImagePreview"></div>
+                            </div>
+                            <div class="image-upload-item">
+                                <label>About Image</label>
+                                <input type="file" id="aboutImage" accept="image/*">
+                                <div class="image-preview" id="aboutImagePreview"></div>
+                            </div>
+                            <div class="image-upload-item">
+                                <label>Expert Image</label>
+                                <input type="file" id="expertImage" accept="image/*">
+                                <div class="image-preview" id="expertImagePreview"></div>
+                            </div>
+                            <div class="image-upload-item">
+                                <label>Why Choose Image</label>
+                                <input type="file" id="whyChooseImage" accept="image/*">
+                                <div class="image-preview" id="whyChooseImagePreview"></div>
+                            </div>
+                        </div>
+                        <button class="btn-primary save-btn" data-section="images">Save Images</button>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="settingsTab" class="tab-content">
+                    <div class="form-section">
+                        <h3>Admin Settings</h3>
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" placeholder="Enter current password">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" placeholder="Enter new password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                        </div>
+                        <button class="btn-primary" id="changePasswordBtn">Change Password</button>
+
+                        <hr style="margin: 30px 0;">
+
+                        <h3>Data Management</h3>
+                        <p class="info-text">⚠️ Warning: These actions cannot be undone. Make sure to export your data
+                            first!</p>
+                        <button class="btn-danger" id="resetDataBtn">Reset to Default Content</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="toast" class="toast hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12" />
+        </svg>
+        <span id="toastMessage">Changes saved successfully!</span>
+    </div>
+
+    <!-- Firebase SDKs v8 (compatible with firebase-config.js syntax) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- Firebase Configuration & Admin Logic -->
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/admin-firebase.js"></script>
+</body>
+
+</html>
